@@ -1,6 +1,6 @@
 {
-  "name": "payload-blog-typescript",
-  "description": "Blog template",
+  "name": "cms-backend",
+  "description": "Pure Intentions website backend CMS",
   "version": "1.0.0",
   "main": "dist/server.js",
   "license": "MIT",
