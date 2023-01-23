@@ -1,24 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import { getPosts } from "../api";
-const data = await getPosts();
-const posts = data.docs;
+import HeroImage from '../components/HeroImage.astro';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-
-		{
-			posts.map((post) => (
-				<Card
-					href={`/posts/${post.slug}`}
-					title={post.title || "Untitled"}
-					body={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
-				/>
-			))
-		}
+		<h1>Pure Intentions Website</h1>
+		<HeroImage />
 	</main>
 </Layout>
 
