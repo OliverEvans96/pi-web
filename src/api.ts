@@ -31,7 +31,7 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
   );
   const data = await apiFetch(
     // `${import.meta.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
-    "TODO: Local API"
+    "http://example.com"
   )
   return data
 }
