@@ -2,30 +2,33 @@
 import Layout from "../../layouts/Layout.astro";
 import RichText from "../../components/RichText.astro";
 
-import { getPosts } from "../../api";
+import { getPosts, getPostBySlug } from "../../api";
 import type { Post } from "@/payload/payload-types";
 import type {
   FormattedElement,
   FormattedText,
 } from "@/payload/rich-text-export";
 
-export async function getStaticPaths() {
-  const posts = await getPosts();
-  const paths = posts.docs.map((post) => {
-    return {
-      params: { slug: post.slug },
-      props: { post },
-    };
-  });
-  return paths;
-}
+// export async function getStaticPaths() {
+//   const posts = await getPosts();
+//   const paths = posts.docs.map((post) => {
+//     return {
+//       params: { slug: post.slug },
+//       props: { post },
+//     };
+//   });
+//   return paths;
+// }
 
 export interface Props {
   post: Post;
   params: string | undefined;
 }
 
-const { post } = Astro.props;
+// const { post } = Astro.props;
+const { slug } = Astro.params;
+let post = await getPostBySlug(slug);
+if (!post) return Astro.redirect("/404"); // TODO: add 404 page
 const content = post.content as (FormattedElement | FormattedText)[];
 ---
 
