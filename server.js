@@ -1,6 +1,6 @@
 import express from 'express';
 import payload from 'payload';
-// import { handler as ssrHandler } from './dist/server/entry.mjs';
+import { handler as ssrHandler } from './dist/server/entry.mjs';
 import dotenv from 'dotenv';
 
 console.log("HELLO1");
@@ -25,7 +25,7 @@ payload.init({
 
 // Add your own express routes here
 app.use(express.static('dist/client/'))
-// app.use(ssrHandler);
+app.use(ssrHandler);
 
 app.listen(process.env.PORT);
 console.log(`Listening on port ${process.env.PORT}`);
