@@ -1,1 +1,10 @@
-<img src="wheatgrass.jpg" width="100%" height="100px"/>
+---
+import {lorem} from '../placeholder';
+---
+
+<div class="relative">
+    <img src="image-placeholder.png" class="w-[100%] h-[400px] border-4 border-black"/>
+    <section class="absolute w-[400px] h-fit m-5 top-1/4 right-10 bg-white p-2 border-2 border-black">
+        {lorem.generateSentences(3)}
+    </section>
+</div>
