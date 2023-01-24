@@ -1,14 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import HeroImage from '../components/HeroImage.astro';
+import {lorem} from '../placeholder';
+let placeholderText = lorem.generateParagraphs(4);
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Pure Intentions Website</h1>
-		<p class="hover:font-bold">Hover me!</p>
-		<HeroImage />
-		<section class="absolute w-200 h-100 m-5 bottom-0 right-0 bg-white p-2">Home Page Description</section>
+	<main class="max-w-screen-md">
+		<h1>Pure Intentions</h1>
+
+		<HeroImage class="absolute"/>
+		  <section class="absolute w-200 h-100 m-5 bottom-0 right-0 bg-white p-2">Home Page Description</section>
+		<p>{placeholderText}</p>
 	</main>
 </Layout>
 
@@ -16,7 +19,6 @@ import HeroImage from '../components/HeroImage.astro';
 	main {
 		margin: auto;
 		padding: 1.5rem;
-		max-width: 60ch;
 	}
 	h1 {
 		font-size: 3rem;
