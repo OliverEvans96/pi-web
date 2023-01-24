@@ -30,7 +30,8 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
     { addQueryPrefix: true }
   );
   const data = await apiFetch(
-    `${import.meta.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
+    // `${import.meta.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
+    "TODO: Local API"
   )
   return data
 }

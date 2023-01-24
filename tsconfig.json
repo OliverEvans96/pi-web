@@ -1,15 +1,3 @@
 {
-  "compilerOptions": {
-    "rootDir": ".",
-    "outDir": "../dist/",
-  },
-  "files": [],
-  "references": [
-    {
-      "path": "./backend"
-    },
-    {
-      "path": "./frontend"
-    }
-  ]
+  "extends": "astro/tsconfigs/strictest"
 }

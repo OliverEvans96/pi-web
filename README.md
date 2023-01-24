@@ -1,34 +1,49 @@
-# Payload CMS & Astro Template
+# Welcome to [Astro](https://astro.build)
 
-This is a template for [Payload CMS](https://payloadcms.com) and [Astro](https://astro.build)
-It is a simple blog template with a few pages and a blog post collection.
-It is fully typed with TypeScript.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
 
-## Getting Started
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-1. Clone this repository
-2. Run `npm install`
-3. set `MONGODB_URI` in `backend/.env` with a MongoDB connection string (run locally or use a service like [MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
-4. Run `cd backend && npm run dev` to start the development server for payload
-5. In another terminal run `cd frontend && npm run dev` to start the development server for astro
+![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
 
-## Modify the Template
 
-After changing any of the payload config in `backend/src/payload.config.ts` you will need to regenerate the types for the frontend. To do this, run `npm run generate:types` in the `backend` directory. Then add fetch functions with the new types to `frontend/src/api.ts`
+## 🚀 Project Structure
 
-## Deploying
+Inside of your Astro project, you'll see the following folders and files:
 
-To deploy this template, there are a couple of options.
+```
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── components/
+│   │   └── Card.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-### Deploying separately
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-The frontend and backend can be deployed separately. The frontend can be deployed to any static hosting service like [Netlify](https://www.netlify.com) or [Vercel](https://vercel.com) or [CloudflarePage](https://pages.cloudflare.com/). The backend can be deployed to any Node.js hosting service like [Heroku](https://www.heroku.com) or [Vercel](https://vercel.com).
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-### Deploying together
+Any static assets, like images, can be placed in the `public/` directory.
 
-The frontend and backend can be deployed together. Astro can be run as a [node service](https://docs.astro.build/en/guides/integrations-guide/node/) with SSR enabled and can be called from the backend in the `backend/src/server.ts` file.
+## 🧞 Commands
 
-## Documentation
+All commands are run from the root of the project, from a terminal:
 
-- [Payload CMS](https://payloadcms.com/docs/)
-- [Astro](https://docs.astro.build/en/getting-started/)
+| Command                | Action                                             |
+| :--------------------- | :------------------------------------------------- |
+| `npm install`          | Installs dependencies                              |
+| `npm run dev`          | Starts local dev server at `localhost:3000`        |
+| `npm run build`        | Build your production site to `./dist/`            |
+| `npm run preview`      | Preview your build locally, before deploying       |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
+| `npm run astro --help` | Get help using the Astro CLI                       |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
