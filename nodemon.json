@@ -1,4 +1,4 @@
 {
-  "ext": "ts",
-  "exec": "node server.js"
+  "ext": "ts,astro",
+  "exec": "npm run build && node server.js"
 }
