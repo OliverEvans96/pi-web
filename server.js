@@ -3,8 +3,6 @@ import payload from 'payload';
 import { handler as ssrHandler } from './dist/server/entry.mjs';
 import dotenv from 'dotenv';
 
-console.log("HELLO1");
-
 dotenv.config();
 const app = express();
 
@@ -29,7 +27,5 @@ app.use(ssrHandler);
 
 app.listen(process.env.PORT);
 console.log(`Listening on port ${process.env.PORT}`);
-
-console.log("HELLO");
 
 app.listen(4000);
