@@ -2,16 +2,20 @@
 import Layout from "../layouts/Layout.astro";
 import HeroImage from '../components/HeroImage.astro';
 import {lorem} from '../placeholder';
-let placeholderText = lorem.generateParagraphs(4);
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="max-w-screen-md">
 		<h1>Pure Intentions</h1>
-
-		<HeroImage class="absolute"/>
-		  <section class="absolute w-200 h-100 m-5 bottom-0 right-0 bg-white p-2">Home Page Description</section>
-		<p>{placeholderText}</p>
+		<HeroImage />
+        <section>
+            <br />
+            <p>{lorem.generateParagraphs(1)}</p>
+            <br />
+            <p>{lorem.generateParagraphs(1)}</p>
+            <br />
+            <p>{lorem.generateParagraphs(1)}</p>
+        </section>
 	</main>
 </Layout>
 
