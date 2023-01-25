@@ -1,7 +1,8 @@
 {
   "name": "pi-ssr-frontend",
-  "type": "module",
   "version": "0.0.1",
+  "type": "module",
+  "main": "dist/server/entry.mjs",
   "private": true,
   "scripts": {
     "dev": "astro dev",
