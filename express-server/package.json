@@ -4,15 +4,16 @@
   "description": "Express server that handles CMS, SSR, and static content.",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "cross-env PAYLOAD_CONFIG_PATH=../backend/dist/payload.config.js nodemon",
-    "start": "cross-env PAYLOAD_CONFIG_PATH=../backend/dist/payload.config.js NODE_ENV=production node .",
+    "dev": "cross-env PAYLOAD_CONFIG_PATH=node_modules/pi-cms-backend/dist/payload.config.js nodemon",
+    "start": "cross-env PAYLOAD_CONFIG_PATH=node_modules/pi-cms-backend/dist/payload.config.js NODE_ENV=production node .",
     "build": "tsc"
   },
   "author": "Oliver Evans",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "payload": "^1.1.7"
+    "payload": "^1.1.7",
+    "pi-cms-backend": "file:../backend"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
