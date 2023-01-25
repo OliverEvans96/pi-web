@@ -20,7 +20,9 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<Navbar />
-		<slot />
+		<main class="max-w-screen-md mx-auto my-auto p-6">
+			<slot />
+		</main>
 		<Footer />
 	</body>
 </html>
