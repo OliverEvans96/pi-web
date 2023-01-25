@@ -1,6 +1,7 @@
 {
   "name": "pi-express-server",
   "version": "1.0.0",
+  "type": "module",
   "description": "Express server that handles CMS, SSR, and static content.",
   "main": "dist/server.js",
   "scripts": {
