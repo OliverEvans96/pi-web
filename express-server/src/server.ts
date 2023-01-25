@@ -1,14 +1,13 @@
 import express from "express";
 import payload from "payload";
 import dotenv from "dotenv";
+import { handler as ssrHandler } from 'pi-ssr-frontend';
 
 dotenv.config();
 const app = express();
 
-// Redirect root to Admin panel
-app.get("/", (_, res) => {
-  res.redirect("/admin");
-});
+app.use(express.static('dist/client/'))
+app.use(ssrHandler);
 
 // Initialize Payload
 payload.init({
