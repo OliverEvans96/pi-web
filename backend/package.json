@@ -1,5 +1,5 @@
 {
-  "name": "cms-backend",
+  "name": "pi-cms-backend",
   "description": "Pure Intentions website backend CMS",
   "version": "1.0.0",
   "main": "dist/server.js",
