@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroImage from "../components/HeroImage.astro";
+import { lorem } from "../placeholder";
+---
+
+<Layout title="Events">
+  <main>
+    <h1 class="text-xl font-bold text-center">About the Event Space</h1>
+    <section>
+      <br />
+      <p>{lorem.generateParagraphs(1)}</p>
+      <br />
+      <p>{lorem.generateParagraphs(1)}</p>
+    </section>
+    <HeroImage />
+    <div class="border-2 border-black mt-2">
+      <h2 class="text-lg font-bold">Event Title 1</h2>
+      <p class="font-bold">March 21, 2023 - 8:00pm</p>
+      <p>{lorem.generateParagraphs(1)}</p>
+    </div>
+    <div class="border-2 border-black mt-2">
+      <h2 class="text-lg font-bold">Event Title 2</h2>
+      <p class="font-bold">March 30, 2023 - 6:30pm</p>
+      <p>{lorem.generateParagraphs(1)}</p>
+    </div>
+  </main>
+</Layout>
