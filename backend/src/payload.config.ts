@@ -7,7 +7,7 @@ import Tags from './collections/Tags';
 import Users from './collections/Users';
 
 export default buildConfig({
-  serverURL: 'https://pi-web-u2wshzqega-uc.a.run.app',
+  serverURL: process.env.SITE_URL,
   admin: {
     user: Users.slug,
   },
