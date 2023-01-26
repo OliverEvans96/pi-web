@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "cross-env PAYLOAD_CONFIG_PATH=node_modules/pi-cms-backend/dist/payload.config.js nodemon",
     "start": "cross-env PAYLOAD_CONFIG_PATH=node_modules/pi-cms-backend/dist/payload.config.js NODE_ENV=production node .",
-    "build": "tsc"
+    "build": "tsc && cp -r node_modules/pi-cms-backend/build ."
   },
   "author": "Oliver Evans",
   "license": "MIT",

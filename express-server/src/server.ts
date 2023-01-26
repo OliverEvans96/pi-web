@@ -1,6 +1,6 @@
 import express from "express";
-import payload from "payload";
 import dotenv from "dotenv";
+import payload from "payload";
 import { handler as ssrHandler } from 'pi-ssr-frontend';
 
 dotenv.config();
@@ -16,9 +16,8 @@ payload.init({
   },
 });
 
+// Frontend
 app.use(express.static('node_modules/pi-ssr-frontend/dist/client'))
 app.use(ssrHandler);
-
-// Add your own express routes here
 
 app.listen(4000);
