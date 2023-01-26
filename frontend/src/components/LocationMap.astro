@@ -1,0 +1,30 @@
+---
+interface Props {
+  width: number,
+  height: number,
+}
+
+let { width, height } = Astro.props;
+
+// From google cloud console
+let google_maps_api_key = "AIzaSyDNGPMhA7naLitIRtKIDrmO_c1Sq4eQWWM";
+
+// Pure Intentions location ID
+// from https://developers.google.com/maps/documentation/places/web-service/place-id
+let google_place_id = "ChIJz1gfGDLYMIgR9q7G8kWq22c";
+
+// Center on Akron, Ohio
+let center_latlon = "41.0977038,-81.5555946";
+let default_zoom = 12;
+---
+
+<div class="border-2 border-black w-fit h-fit m-2">
+<iframe
+  width={width}
+  height={height}
+  frameborder="0" style="border:0"
+  referrerpolicy="no-referrer-when-downgrade"
+  src=`https://www.google.com/maps/embed/v1/place?key=${google_maps_api_key}&q=place_id:${google_place_id}&center=${center_latlon}&zoom=${default_zoom}`
+  allowfullscreen>
+</iframe>
+</div>
