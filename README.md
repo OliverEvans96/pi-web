@@ -1,4 +1,6 @@
-# Payload CMS & Astro Template
+# Pure Intentions Website
+
+From: Payload CMS & Astro Template
 
 This is a template for [Payload CMS](https://payloadcms.com) and [Astro](https://astro.build)
 It is a simple blog template with a few pages and a blog post collection.
