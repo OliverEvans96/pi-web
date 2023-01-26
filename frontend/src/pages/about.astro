@@ -1,10 +1,18 @@
 ---
+import PlaceholderImage from "../components/PlaceholderImage.astro";
 import Posts from "../components/Posts.astro";
 import Layout from "../layouts/Layout.astro";
+import { lorem } from "../placeholder";
 ---
 
 <Layout title="About">
-	<p>About wheatgrass!</p>
-        <!-- <Posts /> -->
+  <div class="grid grid-cols-2 space-x-10">
+    <p>{lorem.generateParagraphs(3)}</p>
+    <div class="grid grid-rows-2">
+      <PlaceholderImage width="250px" height="250px"/>
+      <PlaceholderImage width="250px" height="250px"/>
+    </div>
+  </div>
+  <!-- <Posts /> -->
 
 </Layout>
