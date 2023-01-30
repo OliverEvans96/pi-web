@@ -34,3 +34,19 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
   )
   return data
 }
+
+///////
+interface LandingTitle {
+  globalType: string,
+  createdAt: string,
+  updatedAt: string,
+  header: string,
+  id: string
+}
+
+export async function getLandingTitle(): Promise<LandingTitle> {
+  const data = await apiFetch(
+    `${import.meta.env.PAYLOAD_URL}/api/globals/landingTitle`
+  )
+  return data
+}
