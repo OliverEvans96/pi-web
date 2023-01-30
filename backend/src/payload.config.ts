@@ -5,6 +5,7 @@ import Categories from './collections/Categories';
 import Posts from './collections/Posts';
 import Tags from './collections/Tags';
 import Users from './collections/Users';
+import LandingTitle from './globals/LandingTitle';
 
 export default buildConfig({
   serverURL: process.env.SITE_URL,
@@ -17,6 +18,7 @@ export default buildConfig({
     Tags,
     Users,
   ],
+  globals: [LandingTitle],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
   },
