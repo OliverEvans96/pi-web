@@ -5,7 +5,13 @@ const LandingTitle: GlobalConfig = {
   slug: 'landingTitle',
   access: {
     read: () => true,
-    update: ({ req: {user} }) => user, 
+    update: ({ req: {user} }) => {
+      let allowed = Boolean(user);
+      console.log("trying to edit landing title");
+      console.log("user: ", JSON.stringify(user, null, 2));
+      console.log("allowed: ", allowed);
+      return allowed;
+    },
   },
   fields: [
     {
