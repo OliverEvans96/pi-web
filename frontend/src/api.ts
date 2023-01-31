@@ -30,7 +30,7 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
     { addQueryPrefix: true }
   );
   const data = await apiFetch(
-    `${import.meta.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
+    `${process.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
   )
   return data
 }
@@ -46,7 +46,7 @@ interface LandingTitle {
 
 export async function getLandingTitle(): Promise<LandingTitle> {
   const data = await apiFetch(
-    `${import.meta.env.PAYLOAD_URL}/api/globals/landingTitle`
+    `${process.env.PAYLOAD_URL}/api/globals/landingTitle`
   )
   return data
 }
