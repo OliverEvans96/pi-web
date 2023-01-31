@@ -6,9 +6,6 @@ const LandingTitle: GlobalConfig = {
   access: {
     read: () => true,
   },
-  admin: {
-    group: 'Admin'
-  },
   fields: [
     {
       name: 'header',
