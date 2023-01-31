@@ -5,6 +5,7 @@ const LandingTitle: GlobalConfig = {
   slug: 'landingTitle',
   access: {
     read: () => true,
+    update: ({ req: {user} }) => user, 
   },
   fields: [
     {
