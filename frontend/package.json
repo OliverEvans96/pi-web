@@ -23,6 +23,7 @@
   "devDependencies": {
     "@types/escape-html": "^1.0.2",
     "@types/qs": "^6.9.7",
+    "dotenv": "^16.0.3",
     "escape-html": "^1.0.3",
     "slate": "^0.82.1"
   }
