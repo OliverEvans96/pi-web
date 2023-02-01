@@ -1,9 +1,14 @@
 ---
 interface Props {
-  width: string,
-  height: string,
+  width: string;
+  height: string;
 }
 
-const {width, height} = Astro.props;
+const { width, height } = Astro.props;
 ---
-<img src="image-placeholder.png" class=`border-4 border-black my-4` style=`width: ${width}; height: ${height}` />
+
+<img
+  src="/image-placeholder.png"
+  class=`border-4 border-black my-4`
+  style=`width: ${width}; height: ${height}`
+/>
