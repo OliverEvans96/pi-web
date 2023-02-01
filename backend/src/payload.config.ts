@@ -9,7 +9,7 @@ import LandingTitle from './globals/LandingTitle';
 
 let serverURL = process.env.SITE_URL;
 
-payload.logger.info(`Payload serverURL: ${serverURL}`);
+console.log(`Payload serverURL: ${serverURL}`);
 
 export default buildConfig({
   serverURL,
