@@ -20,7 +20,7 @@ export default buildConfig({
   ],
   csrf: [
     'https://preview.pureintentionsinc.com',
-    'https://pi-web.fly.io',
+    'https://pi-web.fly.dev',
   ],
   globals: [LandingTitle],
   typescript: {
