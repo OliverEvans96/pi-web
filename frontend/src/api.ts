@@ -1,6 +1,6 @@
 import type { PayloadCollection } from './types';
 import qs from "qs";
-import type { Post } from '@/payload/payload-types';
+import type { LandingTitle, Post } from '@/payload/payload-types';
 
 function apiFetch(url: string, options: any = {}) {
   const defaultOptions = {
@@ -33,15 +33,6 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
     `${process.env.PAYLOAD_URL}/api/posts${stringifiedQuery}`
   )
   return data
-}
-
-///////
-interface LandingTitle {
-  globalType: string,
-  createdAt: string,
-  updatedAt: string,
-  header: string,
-  id: string
 }
 
 export async function getLandingTitle(): Promise<LandingTitle> {
