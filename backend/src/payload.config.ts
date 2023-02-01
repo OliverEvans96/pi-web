@@ -6,6 +6,8 @@ import Posts from './collections/Posts';
 import Tags from './collections/Tags';
 import Users from './collections/Users';
 import LandingTitle from './globals/LandingTitle';
+import Products from './collections/Products';
+import Pages from './collections/Pages';
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ export default buildConfig({
     Posts,
     Tags,
     Users,
+    Products,
+    Pages,
   ],
   csrf: [
     'https://preview.pureintentionsinc.com',

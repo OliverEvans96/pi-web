@@ -1,6 +1,6 @@
 import type { PayloadCollection } from './types';
 import qs from "qs";
-import type { LandingTitle, Post } from '@/payload/payload-types';
+import type { LandingTitle, Post, Product, Page } from '@/payload/payload-types';
 
 function apiFetch(url: string, options: any = {}) {
   const defaultOptions = {
@@ -34,6 +34,38 @@ export async function getPosts(query: any = null): Promise<PayloadCollection<Pos
   )
   return data
 }
+
+export async function getProducts(query: any = null): Promise<PayloadCollection<Product>> {
+  const stringifiedQuery = qs.stringify(
+    query,
+    { addQueryPrefix: true }
+  );
+  const data = await apiFetch(
+    `${process.env.PAYLOAD_URL}/api/products${stringifiedQuery}`
+  )
+  return data
+}
+
+async function queryPagesBySlug(slug?: string): Promise<PayloadCollection<Page>> {
+  const query = { slug: { equals: slug } };
+  const stringifiedQuery = qs.stringify(
+    { where: query },
+    { addQueryPrefix: true }
+  );
+  const data = await apiFetch(`${process.env.PAYLOAD_URL}/api/pages${stringifiedQuery}`);
+  return data
+}
+
+export async function getAllPages(): Promise<PayloadCollection<Page>> {
+  return await queryPagesBySlug();
+}
+
+export async function getPageBySlug(slug?: string): Promise<Page | undefined> {
+  let results = await queryPagesBySlug(slug);
+  let [page,] = results.docs;
+  return page;
+}
+
 
 export async function getLandingTitle(): Promise<LandingTitle> {
   const data = await apiFetch(

@@ -8,6 +8,14 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "landingTitle".
+ */
+export interface LandingTitle {
+  id: string;
+  header: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {
@@ -56,4 +64,49 @@ export interface User {
 export interface Tag {
   id: string;
   name?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: string;
+  name?: string;
+  price?: number;
+  description?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: string;
+  title: string;
+  slug: string;
+  category?: string | Category;
+  status?: 'draft' | 'published';
+  blocks: (
+    | {
+        product: string | Product;
+        id?: string;
+        blockName?: string;
+        blockType: 'ProductCard';
+      }
+    | {
+        text: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'Paragraph';
+      }
+    | {
+        header: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'Header';
+      }
+  )[];
+  createdAt: string;
+  updatedAt: string;
 }
