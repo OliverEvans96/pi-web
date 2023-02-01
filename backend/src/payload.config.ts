@@ -18,6 +18,10 @@ export default buildConfig({
     Tags,
     Users,
   ],
+  csrf: [
+    'https://preview.pureintentionsinc.com',
+    'https://pi-web.fly.io',
+  ],
   globals: [LandingTitle],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
