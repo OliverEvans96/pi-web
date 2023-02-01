@@ -7,8 +7,12 @@ import Tags from './collections/Tags';
 import Users from './collections/Users';
 import LandingTitle from './globals/LandingTitle';
 
+let serverURL = process.env.SITE_URL;
+
+payload.logger.info(`Payload serverURL: ${serverURL}`);
+
 export default buildConfig({
-  serverURL: process.env.SITE_URL,
+  serverURL,
   admin: {
     user: Users.slug,
   },
