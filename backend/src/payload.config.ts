@@ -1,10 +1,13 @@
 import { buildConfig } from 'payload/config';
+import dotenv from 'dotenv';
 import path from 'path';
 import Categories from './collections/Categories';
 import Posts from './collections/Posts';
 import Tags from './collections/Tags';
 import Users from './collections/Users';
 import LandingTitle from './globals/LandingTitle';
+
+dotenv.config();
 
 let serverURL = process.env.SITE_URL;
 
