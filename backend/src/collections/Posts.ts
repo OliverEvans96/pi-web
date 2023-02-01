@@ -1,7 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 import slug from '../fields/slug';
 
-
 const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {

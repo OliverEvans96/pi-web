@@ -1,6 +1,5 @@
 import { buildConfig } from 'payload/config';
 import path from 'path';
-import payload from 'payload';
 import Categories from './collections/Categories';
 import Posts from './collections/Posts';
 import Tags from './collections/Tags';
