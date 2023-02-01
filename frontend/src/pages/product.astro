@@ -1,33 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { lorem } from "../placeholder";
-import PlaceholderImage from "../components/PlaceholderImage.astro";
+import ProductCard from "../components/ProductCard.astro";
+import { getProducts } from "../api";
+
+let products = await getProducts();
 ---
 
 <Layout title="product">
-  <div class="border-2 border-black p-2 mb-2">
-    <h4 class="text-lg font-bold">Seeds</h4>
-    <p>$11.00</p>
-    <div class="grid grid-cols-2">
-      <PlaceholderImage width="200px" height="200px"/>
-      <p>{lorem.generateParagraphs(1)}</p>
-    </div>
-  </div>
-  <div class="border-2 border-black p-2 mb-2">
-    <h4 class="text-lg font-bold">Kitty Grass</h4>
-    <p>$5.00</p>
-    <div class="grid grid-cols-2">
-      <PlaceholderImage width="200px" height="200px"/>
-      <p>{lorem.generateParagraphs(1)}</p>
-    </div>
-  </div>
-  <div class="border-2 border-black p-2 mb-2">
-    <h4 class="text-lg font-bold">Wheatgrass by the lb</h4>
-    <p>$18.00/lb</p>
-    <div class="grid grid-cols-2">
-      <PlaceholderImage width="200px" height="200px"/>
-      <p>{lorem.generateParagraphs(1)}</p>
-    </div>
-  </div>
-
+  <h1 class="text-3xl font-bold text-center">Our Products</h1>
+  <br />
+  <section>
+    {products.docs.map(product => <ProductCard product={product} />)}
+  </section>
 </Layout>
