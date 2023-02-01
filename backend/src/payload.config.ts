@@ -23,6 +23,7 @@ export default buildConfig({
   ],
   csrf: [
     'https://preview.pureintentionsinc.com',
+    'http://localhost:4000',
   ],
   globals: [LandingTitle],
   typescript: {
