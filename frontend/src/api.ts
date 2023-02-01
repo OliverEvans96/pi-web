@@ -56,6 +56,10 @@ async function queryPagesBySlug(slug?: string): Promise<PayloadCollection<Page>>
   return data
 }
 
+export async function getAllPages(): Promise<PayloadCollection<Page>> {
+  return await queryPagesBySlug();
+}
+
 export async function getPageBySlug(slug?: string): Promise<Page | undefined> {
   let results = await queryPagesBySlug(slug);
   let [page,] = results.docs;
