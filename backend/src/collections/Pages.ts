@@ -6,7 +6,7 @@ import HeaderBlock from '../blocks/Header';
 const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
-    defaultColumns: ['title', 'author', 'category', 'tags', 'status'],
+    defaultColumns: ['title', 'slug', 'category', 'status'],
     useAsTitle: 'title',
   },
   access: {
