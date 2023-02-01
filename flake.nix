@@ -7,8 +7,22 @@
   outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
-        deps = with pkgs; [ nodejs ];
+        # pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        my-vscode = with pkgs;
+          vscode-with-extensions.override {
+            vscodeExtensions = with vscode-extensions; [
+              vscodevim.vim
+              astro-build.astro-vscode
+            ];
+          };
+        deps = with pkgs; [
+          nodejs
+          my-vscode
+        ];
         nodeDeps = with pkgs.nodePackages; [ yarn ];
         allDeps = deps ++ nodeDeps;
       in rec {
