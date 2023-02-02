@@ -106,6 +106,15 @@ export interface Page {
         blockName?: string;
         blockType: 'Header';
       }
+    | {
+        title: string;
+        date: string;
+        price: number;
+        description: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'EventCard';
+      }
   )[];
   createdAt: string;
   updatedAt: string;
