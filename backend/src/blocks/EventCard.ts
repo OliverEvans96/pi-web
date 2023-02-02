@@ -8,7 +8,6 @@ const EventCardBlock: Block = {
     {
       name: 'title',
       type: 'text',
-      // relationTo: 'products',
       required: true,
     },
     {
