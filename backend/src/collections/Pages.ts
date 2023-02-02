@@ -2,6 +2,7 @@ import { CollectionConfig } from 'payload/types';
 import ProductCardBlock from '../blocks/ProductCard';
 import ParagraphBlock from '../blocks/Paragraph';
 import HeaderBlock from '../blocks/Header';
+import EventCardBlock from '../blocks/EventCard';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -58,6 +59,7 @@ const Pages: CollectionConfig = {
         ProductCardBlock,
         ParagraphBlock,
         HeaderBlock,
+        EventCardBlock
       ]
     }
   ],
