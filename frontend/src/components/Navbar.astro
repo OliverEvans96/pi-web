@@ -7,7 +7,6 @@ let pages = await getAllPages();
 <div class="bg-gray-300">
     <div class="text-center space-x-4">
         <a href="/">Home</a>
-        <a href="/events">Events</a>
         <a href="/about">About Us</a>
         {pages.docs.map((page) => <a href={`/${page.slug}`}>{page.title}</a>)}
         <a href="/contact">Contact</a>
