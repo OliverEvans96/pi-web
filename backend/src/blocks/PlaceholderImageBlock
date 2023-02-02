@@ -1,0 +1,17 @@
+import { Block } from 'payload/types';
+
+const PlaceholderImageBlock: Block = {
+  slug: 'PlaceholderImage',
+  imageURL: '',
+  imageAltText: '',
+  fields: [
+    {
+      name: 'placeholderImage',
+      relationTo: 'media',
+      type: 'upload',
+      required: true,
+    },
+  ]
+};
+
+export default PlaceholderImageBlock;
