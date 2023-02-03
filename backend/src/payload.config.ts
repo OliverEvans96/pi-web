@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import Categories from './collections/Categories';
 import Posts from './collections/Posts';
-import Tags from './collections/Tags';
 import Users from './collections/Users';
 import Images from './collections/Images';
 import LandingTitle from './globals/LandingTitle';
@@ -24,7 +23,6 @@ export default buildConfig({
   collections: [
     Categories,
     Posts,
-    Tags,
     Users,
     Products,
     Pages,
