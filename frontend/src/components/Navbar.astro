@@ -2,6 +2,7 @@
 import { getAllPages } from "../api";
 
 let pages = await getAllPages();
+let adminUrl = `${process.env.PAYLOAD_URL}/admin`;
 ---
 
 <div class="bg-gray-300">
@@ -11,5 +12,5 @@ let pages = await getAllPages();
         {pages.docs.map((page) => <a href={`/${page.slug}`}>{page.title}</a>)}
         <a href="/contact">Contact</a>
     </div>
-    <a href="/admin" class="absolute right-0 top-0 mr-3">Login</a>
+    <a href={adminUrl} class="absolute right-0 top-0 mr-3">Login</a>
 </div>
