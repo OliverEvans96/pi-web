@@ -56,10 +56,6 @@ const Images: CollectionConfig = {
   slug: 'images',
   fields: null,
   access: {
-    create: ({ req: { user } }) => {
-      console.log("user: ", user);
-      return Boolean(user);
-    },
     read: () => true,
   },
   hooks: {
