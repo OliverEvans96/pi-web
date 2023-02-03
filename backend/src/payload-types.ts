@@ -119,3 +119,28 @@ export interface Page {
   createdAt: string;
   updatedAt: string;
 }
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images".
+ */
+export interface Image {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    thumbnail: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
+}
