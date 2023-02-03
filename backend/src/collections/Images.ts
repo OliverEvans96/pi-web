@@ -5,6 +5,9 @@ import { deleteObject, uploadFile } from '../s3';
 // Otherwise, use local storage.
 const S3_ENABLED = Boolean(process.env.PAYLOAD_PUBLIC_S3_URL);
 
+console.log('PAYLOAD_PUBLIC_S3_URL = ', process.env.PAYLOAD_PUBLIC_S3_URL);
+console.log('S3_ENABLED = ', S3_ENABLED);
+
 // A function that does nothing.
 const noop = () => { };
 
