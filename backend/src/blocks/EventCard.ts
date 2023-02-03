@@ -2,8 +2,8 @@ import { Block } from 'payload/types';
 
 const EventCardBlock: Block = {
   slug: 'EventCard', // required
-  imageURL: 'https://cdn-icons-png.flaticon.com/128/9455/9455493.png',
-  imageAltText: 'price tag icon',
+  imageURL: 'https://cdn-icons-png.flaticon.com/128/839/839888.png',
+  imageAltText: 'events calendar icon',
   fields: [ // required
     {
       name: 'title',
