@@ -1,6 +1,6 @@
 import type { PayloadCollection } from './types';
 import qs from "qs";
-import type { LandingTitle, Post, Product, Page, Homepage } from '@/payload/payload-types';
+import type { LandingTitle, Post, Product, Page, Homepage, ContactInfo } from '@/payload/payload-types';
 
 function apiFetch(url: string, options: any = {}) {
   const defaultOptions = {
@@ -66,10 +66,16 @@ export async function getPageBySlug(slug?: string): Promise<Page | undefined> {
   return page;
 }
 
-
 export async function getHomepage(): Promise<Homepage> {
   const data = await apiFetch(
     `${process.env.PAYLOAD_URL}/api/globals/homepage`
+  )
+  return data
+}
+
+export async function getContactInfo(): Promise<ContactInfo> {
+  const data = await apiFetch(
+    `${process.env.PAYLOAD_URL}/api/globals/contact-info`
   )
   return data
 }

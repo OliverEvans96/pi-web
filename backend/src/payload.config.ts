@@ -8,6 +8,7 @@ import Images from './collections/Images';
 import HomePage from './globals/HomePage';
 import Products from './collections/Products';
 import Pages from './collections/Pages';
+import ContactInfo from './globals/ContactPage';
 
 dotenv.config();
 
@@ -34,7 +35,10 @@ export default buildConfig({
     'http://localhost:4000',
     'http://127.0.0.1:4000',
   ],
-  globals: [HomePage],
+  globals: [
+    HomePage,
+    ContactInfo,
+  ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
   },
