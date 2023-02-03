@@ -4,6 +4,9 @@ module.exports = {
 	theme: {
 		colors: {
 			'purple': '#6f2dbdff',
+		},
+		fontFamily: {
+			sans: ['Poppins', 'sans-serif']
 		}
 		extend: {},
 	},
