@@ -1,11 +1,19 @@
 ---
-import {lorem} from '../placeholder';
-import PlaceholderImage from './PlaceholderImage.astro';
+import type { Image } from "@/payload/payload-types";
+
+interface Props {
+    image: Image;
+    caption: string;
+}
+
+const { image, caption } = Astro.props;
 ---
 
 <div class="relative">
-    <PlaceholderImage width="100%" height="400px" />
-    <section class="absolute w-[400px] h-fit m-5 top-1/4 right-10 bg-white p-2 border-2 border-black">
-        {lorem.generateSentences(3)}
+    <img style="width: 100%; height: 100%;" src={image.url} />
+    <section
+        class="absolute w-[400px] h-fit m-5 top-1/4 right-10 bg-white p-2 border-2 border-black"
+    >
+        {caption}
     </section>
 </div>

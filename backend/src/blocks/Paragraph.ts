@@ -1,4 +1,3 @@
-
 import { Block } from 'payload/types';
 
 const ParagraphBlock: Block = {

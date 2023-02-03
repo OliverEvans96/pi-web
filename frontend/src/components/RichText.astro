@@ -43,6 +43,12 @@ const props = Astro.props;
         {node.type === "quote" && (
           <p>{<Astro.self richText={node.children} />}</p>
         )}
+        {node.type as string === "p" && (
+          <p>{<Astro.self richText={node.children} />}</p>
+        )}
+        {node.type === "upload" && (
+          <img class="w-[300px]" src={(node as any).value.url} />
+        )}
         {node.type === "ul" && (
           <ul>{<Astro.self richText={node.children} />}</ul>
         )}

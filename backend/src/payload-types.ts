@@ -8,11 +8,58 @@
 export interface Config {}
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "landingTitle".
+ * via the `definition` "homepage".
  */
-export interface LandingTitle {
+export interface Homepage {
   id: string;
-  header: string;
+  title: string;
+  heroImage: string | Image;
+  heroCaption: string;
+  content?: {
+    [k: string]: unknown;
+  }[];
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images".
+ */
+export interface Image {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    thumbnail: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-info".
+ */
+export interface ContactInfo {
+  id: string;
+  hours: {
+    day: string;
+    hours: string;
+    id?: string;
+  }[];
+  contactInfo: {
+    type: string;
+    value: string;
+    id?: string;
+  }[];
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -34,7 +81,6 @@ export interface Post {
   author?: string | User;
   publishedDate?: string;
   category?: string | Category;
-  tags?: string[] | Tag[];
   content?: {
     [k: string]: unknown;
   }[];
@@ -59,14 +105,6 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tags".
- */
-export interface Tag {
-  id: string;
-  name?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
 export interface Product {
@@ -75,31 +113,6 @@ export interface Product {
   image?: string | Image;
   price?: number;
   description?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "images".
- */
-export interface Image {
-  id: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    thumbnail: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
   createdAt: string;
   updatedAt: string;
 }
@@ -140,6 +153,43 @@ export interface Page {
         id?: string;
         blockName?: string;
         blockType: 'EventCard';
+      }
+    | {
+        left: (
+          | {
+              text: string;
+              id?: string;
+              blockName?: string;
+              blockType: 'Paragraph';
+            }
+          | {
+              image: string | Image;
+              width?: number;
+              height?: number;
+              id?: string;
+              blockName?: string;
+              blockType: 'ImageBlock';
+            }
+        )[];
+        right: (
+          | {
+              text: string;
+              id?: string;
+              blockName?: string;
+              blockType: 'Paragraph';
+            }
+          | {
+              image: string | Image;
+              width?: number;
+              height?: number;
+              id?: string;
+              blockName?: string;
+              blockType: 'ImageBlock';
+            }
+        )[];
+        id?: string;
+        blockName?: string;
+        blockType: 'TwoColumn';
       }
   )[];
   createdAt: string;
