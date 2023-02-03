@@ -154,6 +154,43 @@ export interface Page {
         blockName?: string;
         blockType: 'EventCard';
       }
+    | {
+        left: (
+          | {
+              text: string;
+              id?: string;
+              blockName?: string;
+              blockType: 'Paragraph';
+            }
+          | {
+              image: string | Image;
+              width?: number;
+              height?: number;
+              id?: string;
+              blockName?: string;
+              blockType: 'ImageBlock';
+            }
+        )[];
+        right: (
+          | {
+              text: string;
+              id?: string;
+              blockName?: string;
+              blockType: 'Paragraph';
+            }
+          | {
+              image: string | Image;
+              width?: number;
+              height?: number;
+              id?: string;
+              blockName?: string;
+              blockType: 'ImageBlock';
+            }
+        )[];
+        id?: string;
+        blockName?: string;
+        blockType: 'TwoColumn';
+      }
   )[];
   createdAt: string;
   updatedAt: string;

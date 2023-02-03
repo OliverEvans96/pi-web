@@ -13,33 +13,41 @@ const ContactInfo: GlobalConfig = {
             required: true,
             fields: [
                 {
-                    name: 'day',
-                    type: 'text',
-                    required: true,
-                },
-                {
-                    name: 'hours',
-                    type: 'text',
-                    required: true,
-                },
+                    type: 'row',
+                    fields: [
+                        {
+                            name: 'day',
+                            type: 'text',
+                            required: true,
+                        },
+                        {
+                            name: 'hours',
+                            type: 'text',
+                            required: true,
+                        },
+
+                    ]
+                }
             ]
         },
         {
             name: 'contactInfo',
             type: 'array',
             required: true,
-            fields: [
-                {
-                    name: 'type',
-                    type: 'text',
-                    required: true,
-                },
-                {
-                    name: 'value',
-                    type: 'text',
-                    required: true,
-                },
-            ]
+            fields: [{
+                type: 'row', fields: [
+                    {
+                        name: 'type',
+                        type: 'text',
+                        required: true,
+                    },
+                    {
+                        name: 'value',
+                        type: 'text',
+                        required: true,
+                    },
+                ]
+            }],
         },
     ],
 };

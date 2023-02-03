@@ -4,6 +4,7 @@ import Header from "./Header.astro";
 import Paragraph from "./Paragraph.astro";
 import ProductCard from "./ProductCard.astro";
 import EventCard from "./EventCard.astro";
+import TwoColumn from "./TwoColumn.astro";
 
 interface Props {
     block: Page["blocks"][0];
@@ -16,6 +17,8 @@ let { block } = Astro.props;
     (block.blockType == "Header" && <Header text={block.header} />) ||
 
     (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
+
+    (block.blockType == "TwoColumn" && <TwoColumn blocks={block} />) ||
 
     // NOTE: not sure why product could be a string,
     // but typescript thinks it could

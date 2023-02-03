@@ -1,0 +1,27 @@
+---
+import type { Image, Page } from "@/payload/payload-types";
+import Paragraph from "./Paragraph.astro";
+
+interface Props {
+    blocks: Page["blocks"][0];
+}
+
+const blocks =
+    Astro.props.blocks.blockType === "TwoColumn" && Astro.props.blocks || undefined;
+
+// type BlockType = NonNullable<(typeof blocks)>['left'][0];
+// TODO: Make this less redundant somehow
+---
+
+<div class="columns-2">
+    {blocks?.left.map(block => (
+    (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
+    (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
+    {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
+))}
+    {blocks?.right.map(block => (
+    (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
+    (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
+    {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
+))}
+</div>

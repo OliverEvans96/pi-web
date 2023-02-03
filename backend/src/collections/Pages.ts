@@ -3,6 +3,7 @@ import ProductCardBlock from '../blocks/ProductCard';
 import ParagraphBlock from '../blocks/Paragraph';
 import HeaderBlock from '../blocks/Header';
 import EventCardBlock from '../blocks/EventCard';
+import TwoColumnBlock from '../blocks/TwoColumn';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -59,7 +60,8 @@ const Pages: CollectionConfig = {
         ProductCardBlock,
         ParagraphBlock,
         HeaderBlock,
-        EventCardBlock
+        EventCardBlock,
+        TwoColumnBlock,
       ]
     }
   ],
