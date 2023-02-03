@@ -5,7 +5,7 @@ import Categories from './collections/Categories';
 import Posts from './collections/Posts';
 import Users from './collections/Users';
 import Images from './collections/Images';
-import LandingTitle from './globals/LandingTitle';
+import HomePage from './globals/HomePage';
 import Products from './collections/Products';
 import Pages from './collections/Pages';
 
@@ -34,7 +34,7 @@ export default buildConfig({
     'http://localhost:4000',
     'http://127.0.0.1:4000',
   ],
-  globals: [LandingTitle],
+  globals: [HomePage],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
   },

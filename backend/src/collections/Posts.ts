@@ -35,12 +35,6 @@ const Posts: CollectionConfig = {
       relationTo: 'categories'
     },
     {
-      name: 'tags',
-      type: 'relationship',
-      relationTo: 'tags',
-      hasMany: true,
-    },
-    {
       name: 'content',
       type: 'richText'
     },

@@ -1,26 +1,32 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HeroImage from '../components/HeroImage.astro';
-import {lorem} from '../placeholder';
-import { getLandingTitle } from "../api";
-let landingTitle = await getLandingTitle();
+import HeroImage from "../components/HeroImage.astro";
+import { getHomepage } from "../api";
+import RichText from "../components/RichText.astro";
+import type {
+	FormattedElement,
+	FormattedText,
+} from "@/payload/rich-text-export";
+import type { Image } from "@/payload/payload-types";
+
+const homepage = await getHomepage();
+const {title} = homepage;
+
+const heroImage = homepage.heroImage as Image;
+const heroCaption = homepage.heroCaption;
+
+const content = homepage.content as (FormattedElement | FormattedText)[];
 ---
 
-<Layout title="Pure Intentions">
-	<h1 class="text-5xl font-bold text-center">{landingTitle.header}</h1>
-	<HeroImage />
-      <section>
-          <br />
-          <p>{lorem.generateParagraphs(1)}</p>
-          <br />
-          <p>{lorem.generateParagraphs(1)}</p>
-          <br />
-          <p>{lorem.generateParagraphs(1)}</p>
-      </section>
+<Layout title={title}>
+	<h1 class="text-5xl font-bold text-center">{title}</h1>
+	<HeroImage image={heroImage} caption={heroCaption} />
+
+	<RichText richText={content} />
 </Layout>
 
-<style>
 
+<style>
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
