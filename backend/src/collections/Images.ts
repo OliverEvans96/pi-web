@@ -1,19 +1,15 @@
 import { CollectionConfig, CollectionBeforeChangeHook, CollectionAfterReadHook, CollectionAfterDeleteHook } from 'payload/types';
 import { deleteObject, uploadFile } from '../s3';
 
-// If this env var is present, we'll try to use S3.
-// Otherwise, use local storage.
-const S3_ENABLED = Boolean(process.env.PAYLOAD_PUBLIC_S3_URL);
-
-console.log('PAYLOAD_PUBLIC_S3_URL = ', process.env.PAYLOAD_PUBLIC_S3_URL);
-console.log('S3_ENABLED = ', S3_ENABLED);
+const isProduction = (process.env.NODE_ENV === 'production');
+console.log('isProduction = ', isProduction);
 
 // A function that does nothing.
 const noop = () => { };
 
 // A function decorator that will use the function
 // if S3 is enabled, or do nothing otherwise.
-const ifS3Enabled = (func: (...args: any[]) => any) => S3_ENABLED && func || noop;
+const ifProduction = (func: (...args: any[]) => any) => isProduction && func || noop;
 
 const beforeChangeHook: CollectionBeforeChangeHook = async ({
   data, // incoming data to update or create with
@@ -51,8 +47,8 @@ const afterReadHook: CollectionAfterReadHook = async ({
   findMany, // boolean to denote if this hook is running against finding one, or finding many
 }) => {
   // Add S3 urls to metadata document
-  doc['url'] = `${process.env.PAYLOAD_PUBLIC_S3_URL}/images/${doc.filename}`;
-  doc['thumbnailUrl'] = `${process.env.PAYLOAD_PUBLIC_S3_URL}/thumbnails/${doc.filename}`;
+  doc['url'] = `${process.env.S3_PUBLIC_URL}/images/${doc.filename}`;
+  doc['thumbnailUrl'] = `${process.env.S3_PUBLIC_URL}/thumbnails/${doc.filename}`;
 
   return doc;
 }
@@ -73,15 +69,15 @@ const Images: CollectionConfig = {
     read: () => true,
   },
   hooks: {
-    beforeChange: [ifS3Enabled(beforeChangeHook)],
-    afterRead: [ifS3Enabled(afterReadHook)],
-    afterDelete: [ifS3Enabled(afterDeleteHook)],
+    beforeChange: [ifProduction(beforeChangeHook)],
+    afterRead: [ifProduction(afterReadHook)],
+    afterDelete: [ifProduction(afterDeleteHook)],
   },
   upload: {
     staticURL: '/images',
     staticDir: 'images',
     // Use cloud storage instead
-    disableLocalStorage: S3_ENABLED,
+    disableLocalStorage: isProduction,
     // A resized version of the image is also stored
     imageSizes: [
       {
@@ -93,7 +89,7 @@ const Images: CollectionConfig = {
     ],
     // Get the S3 thumbnail url if S3 is enabled.
     // Otherwise, use the local thumbnail file.
-    adminThumbnail: S3_ENABLED && (({ doc }) => doc.thumbnailUrl as string) || 'thumbnail',
+    adminThumbnail: isProduction && (({ doc }) => doc.thumbnailUrl as string) || 'thumbnail',
     mimeTypes: ['image/*'],
   },
 };
