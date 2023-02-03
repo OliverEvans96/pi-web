@@ -2,7 +2,7 @@ import { Block } from 'payload/types';
 
 const ProductCardBlock: Block = {
   slug: 'ProductCard', // required
-  imageURL: 'https://cdn-icons-png.flaticon.com/128/9455/9455493.png',
+  imageURL: 'https://cdn-icons-png.flaticon.com/64/9455/9455493.png',
   imageAltText: 'price tag icon',
   fields: [ // required
     {
