@@ -52,8 +52,8 @@ const afterDeleteHook: CollectionAfterDeleteHook = async ({
   await deleteObject(`thumbnails/${doc.filename}`);
 }
 
-const Media: CollectionConfig = {
-  slug: 'media',
+const Images: CollectionConfig = {
+  slug: 'images',
   fields: null,
   access: {
     create: ({ req: { user } }) => {
@@ -85,4 +85,4 @@ const Media: CollectionConfig = {
   },
 };
 
-export default Media;
+export default Images;
