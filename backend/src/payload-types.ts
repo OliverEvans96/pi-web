@@ -72,8 +72,34 @@ export interface Tag {
 export interface Product {
   id: string;
   name?: string;
+  image?: string | Image;
   price?: number;
   description?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "images".
+ */
+export interface Image {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes: {
+    thumbnail: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
   createdAt: string;
   updatedAt: string;
 }

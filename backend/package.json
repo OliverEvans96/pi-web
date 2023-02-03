@@ -15,6 +15,7 @@
     "generate": "yarn generate:types && yarn generate:graphQLSchema"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.264.0",
     "dotenv": "^8.2.0",
     "payload": "^1.1.7",
     "sharp": "^0.31.3"

@@ -16,6 +16,11 @@ const Products: CollectionConfig = {
       unique: true,
     },
     {
+      name: 'image',
+      type: 'relationship',
+      relationTo: 'images',
+    },
+    {
       name: 'price',
       type: 'number',
       min: 0,
