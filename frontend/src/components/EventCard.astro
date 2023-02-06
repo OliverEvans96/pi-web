@@ -9,8 +9,8 @@ interface Props {
 let {title, date, price, description} = Astro.props;
 ---
 
-<div class="border-2 border-black mt-2 p-2">
-  <h2 class="text-lg font-bold">{title}</h2>
+<div class="border-1 shadow-gray-300 rounded shadow-xl my-2 p-4">
+  <h2 class="text-xl font-black">{title}</h2>
   <h3 class="font-bold">{date}</h3>
   <p>{price}</p>
   <p>{description}</p>

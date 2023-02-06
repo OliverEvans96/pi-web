@@ -5,12 +5,12 @@ let pages = await getAllPages();
 let adminUrl = `${process.env.PAYLOAD_URL}/admin`;
 ---
 
-<div class="bg-gray-300">
-    <div class="text-center space-x-4">
+<div class="grid content-center bg-purple-600 text-white text-lg font-bold h-12">
+    <div class="font-sans text-center space-x-4">
         <a href="/">Home</a>
         <a href="/about">About Us</a>
-        {pages.docs.map((page) => <a href={`/${page.slug}`}>{page.title}</a>)}
+        {pages.docs.map((page) => <a class="hover:text-yellow-400" href={`/${page.slug}`}>{page.title}</a>)}
         <a href="/contact">Contact</a>
+        <a href={adminUrl} class="absolute right-6 hover:text-yellow-400">Login</a>
     </div>
-    <a href={adminUrl} class="absolute right-0 top-0 mr-3">Login</a>
 </div>
