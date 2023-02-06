@@ -4,6 +4,7 @@ import ParagraphBlock from '../blocks/Paragraph';
 import HeaderBlock from '../blocks/Header';
 import EventCardBlock from '../blocks/EventCard';
 import TwoColumnBlock from '../blocks/TwoColumn';
+import RichTextBlock from '../blocks/RichText';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -59,6 +60,7 @@ const Pages: CollectionConfig = {
       blocks: [ // required
         ProductCardBlock,
         ParagraphBlock,
+        RichTextBlock,
         HeaderBlock,
         EventCardBlock,
         TwoColumnBlock,

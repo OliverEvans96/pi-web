@@ -140,6 +140,14 @@ export interface Page {
         blockType: 'Paragraph';
       }
     | {
+        content: {
+          [k: string]: unknown;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'RichText';
+      }
+    | {
         header: string;
         id?: string;
         blockName?: string;
