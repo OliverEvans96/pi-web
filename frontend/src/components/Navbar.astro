@@ -7,10 +7,9 @@ let adminUrl = `${process.env.PAYLOAD_URL}/admin`;
 
 <div class="grid content-center bg-purple-600 text-white text-lg font-bold h-12">
     <div class="font-sans text-center space-x-4">
-        <a href="/">Home</a>
-        <a href="/about">About Us</a>
+        <a href="/" class="hover:text-yellow-400">Home</a>
         {pages.docs.map((page) => <a class="hover:text-yellow-400" href={`/${page.slug}`}>{page.title}</a>)}
-        <a href="/contact">Contact</a>
+        <a href="/contact" class="hover:text-yellow-400">Contact</a>
         <a href={adminUrl} class="absolute right-6 hover:text-yellow-400">Login</a>
     </div>
 </div>
