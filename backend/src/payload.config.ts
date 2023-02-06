@@ -3,12 +3,12 @@ import dotenv from 'dotenv';
 import path from 'path';
 import Categories from './collections/Categories';
 import Posts from './collections/Posts';
-import Tags from './collections/Tags';
 import Users from './collections/Users';
 import Images from './collections/Images';
-import LandingTitle from './globals/LandingTitle';
+import HomePage from './globals/HomePage';
 import Products from './collections/Products';
 import Pages from './collections/Pages';
+import ContactInfo from './globals/ContactPage';
 
 dotenv.config();
 
@@ -24,7 +24,6 @@ export default buildConfig({
   collections: [
     Categories,
     Posts,
-    Tags,
     Users,
     Products,
     Pages,
@@ -36,7 +35,10 @@ export default buildConfig({
     'http://localhost:4000',
     'http://127.0.0.1:4000',
   ],
-  globals: [LandingTitle],
+  globals: [
+    HomePage,
+    ContactInfo,
+  ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
   },

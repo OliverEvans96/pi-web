@@ -1,19 +1,36 @@
 ---
+import { getContactInfo } from "../api";
 import LocationMap from "../components/LocationMap.astro";
 import Layout from "../layouts/Layout.astro";
+
+let { hours, contactInfo } = await getContactInfo();
 ---
 
 <Layout title="Contact Us">
   <div class="flex flex-col items-center p-2">
     <h1 class="text-3xl font-bold text-center">Contact Us:</h1>
-      <div class="flex flex-row p-2 justify-around w-full mt-2">
-        <section class="border-2 border-black text-center p-2 h-40 w-80">
-          <p>Hours of Operation</p>
-        </section>
-        <section class="border-2 border-black text-center p-2 h-40 w-80">
-          <p>Contact Info</p>
-        </section>
-      </div>
+    <div class="flex flex-row p-2 justify-around w-full mt-2">
+      <section class="border-2 border-black text-center p-2 h-40 w-80">
+        <p>Hours of Operation</p>
+        {
+          hours?.map(({ day, hours }) => (
+            <p>
+              {day}: {hours}
+            </p>
+          ))
+        }
+      </section>
+      <section class="border-2 border-black text-center p-2 h-40 w-80">
+        <p>Contact Info</p>
+        {
+          contactInfo?.map(({ type, value }) => (
+            <p>
+              {type}: {value}
+            </p>
+          ))
+        }
+      </section>
+    </div>
     <LocationMap width={600} height={400} />
   </div>
 </Layout>
