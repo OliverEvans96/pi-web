@@ -25,15 +25,9 @@ const beforeChangeHook: CollectionBeforeChangeHook = async ({
   let mainData = req.files.file.data;
   let mainUploadPromise = uploadFile(mainFilename, mainData, mimetype);
 
-  // Upload scaled thumbnail video to S3
-  let thumbFilename = `video-thumbnails/${data.filename}`;
-  let thumbData = req.payloadUploadSizes.thumbnail;
-  let thumbUploadPromise = uploadFile(thumbFilename, thumbData, mimetype);
-
   // Upload both files in parallel
   await Promise.all([
     mainUploadPromise,
-    thumbUploadPromise
   ]);
 
   // Return data to either create or update a document with
@@ -48,7 +42,6 @@ const afterReadHook: CollectionAfterReadHook = async ({
 }) => {
   // Add S3 urls to metadata document
   doc['url'] = `${process.env.S3_PUBLIC_URL}/videos/${doc.filename}`;
-  doc['thumbnailUrl'] = `${process.env.S3_PUBLIC_URL}/video-thumbnails/${doc.filename}`;
 
   return doc;
 }
@@ -59,7 +52,6 @@ const afterDeleteHook: CollectionAfterDeleteHook = async ({
   doc, // deleted document
 }) => {
   await deleteObject(`videos/${doc.filename}`);
-  await deleteObject(`video-thumbnails/${doc.filename}`);
 }
 
 const Videos: CollectionConfig = {
@@ -78,18 +70,6 @@ const Videos: CollectionConfig = {
     staticDir: 'videos',
     // Use cloud storage instead
     disableLocalStorage: isProduction,
-    // A resized version of the image is also stored
-    imageSizes: [
-      {
-        name: 'thumbnail',
-        width: 400,
-        height: 300,
-        position: 'centre',
-      },
-    ],
-    // Get the S3 thumbnail url if S3 is enabled.
-    // Otherwise, use the local thumbnail file.
-    adminThumbnail: isProduction && (({ doc }) => doc.thumbnailUrl as string) || 'thumbnail',
     mimeTypes: ['video/*'],
   },
 };
