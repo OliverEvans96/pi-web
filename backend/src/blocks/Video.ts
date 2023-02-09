@@ -25,6 +25,12 @@ const VideoBlock: Block = {
             required: true,
         },
         {
+            name: 'loop',
+            type: 'checkbox',
+            label: 'Loop',
+            required: true,
+        },
+        {
             type: 'row', fields: [
                 {
                     name: 'width',

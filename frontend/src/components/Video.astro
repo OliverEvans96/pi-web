@@ -7,10 +7,12 @@ interface Props {
     video?: Video;
     controls: boolean;
     autoplay: boolean;
+    loop: boolean;
 }
 
-const { width, height, video, controls, autoplay } = Astro.props;
+const { width, height, video, controls, autoplay, loop } = Astro.props;
 
+// Chrome only allows autoplay when muted
 const muted = autoplay;
 ---
 
@@ -20,6 +22,7 @@ const muted = autoplay;
     {controls}
     {autoplay}
     {muted}
+    {loop}
 >
     <source src={video?.url} type={video?.mimeType} />
 </video>
