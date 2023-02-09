@@ -22,6 +22,12 @@ let { block } = Astro.props;
 
     (block.blockType == "RichText" && <RichText richText={block.content as (FormattedElement | FormattedText)[]} />) ||
 
+    (block.blockType == "ImageBlock" && <img src={block.image.url} width={block.width} height={block.height} />) ||
+
+    (block.blockType == "VideoBlock" && <video controls width={block.width} height={block.height} >
+        <source src={block.video.url} type={block.video.mimetype} />
+    </video>) ||
+
     (block.blockType == "TwoColumn" && <TwoColumn blocks={block} />) ||
 
     // NOTE: not sure why product could be a string,

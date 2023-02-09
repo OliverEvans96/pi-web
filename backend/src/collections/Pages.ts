@@ -5,6 +5,8 @@ import HeaderBlock from '../blocks/Header';
 import EventCardBlock from '../blocks/EventCard';
 import TwoColumnBlock from '../blocks/TwoColumn';
 import RichTextBlock from '../blocks/RichText';
+import ImageBlock from '../blocks/Image';
+import VideoBlock from '../blocks/Video';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -64,6 +66,8 @@ const Pages: CollectionConfig = {
         HeaderBlock,
         EventCardBlock,
         TwoColumnBlock,
+        ImageBlock,
+        VideoBlock,
       ]
     }
   ],
