@@ -1,7 +1,9 @@
 ---
-import type { Image, Page } from "@/payload/payload-types";
+import type { Page } from "@/payload/payload-types";
+import type { FormattedElement, FormattedText } from "@/payload/rich-text-export";
 import Paragraph from "./Paragraph.astro";
 import RichText from "./RichText.astro";
+import Video from "./Video.astro";
 
 interface Props {
     blocks: Page["blocks"][0];
@@ -18,16 +20,47 @@ const blocks =
     <div class="flex flex-col gap-3">
         {blocks?.left.map(block => (
         (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
-        (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
         (block.blockType == "RichText" && <RichText richText={block.content as (FormattedElement | FormattedText)[]} />) ||
+        (block.blockType == "ImageBlock"
+            && typeof(block.image) !== 'string'
+            && <img
+                src={block.image.url}
+                width={block.width && `${block.width}px`}
+                height={block.height && `${block.height}px`}
+            />) ||
+        (block.blockType == "VideoBlock"
+            && typeof(block.video) !== 'string'
+            && <Video
+                width={block.width}
+                height={block.height}
+                video={block.video}
+                autoplay={block.autoplay}
+                controls={block.controls}
+            />) ||
+
         {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
     ))}
     </div>
     <div class="flex flex-col gap-3">
         {blocks?.right.map(block => (
         (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
-        (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
         (block.blockType == "RichText" && <RichText richText={block.content as (FormattedElement | FormattedText)[]} />) ||
+        (block.blockType == "ImageBlock"
+            && typeof(block.image) !== 'string'
+            && <img
+                src={block.image.url}
+                width={block.width && `${block.width}px`}
+                height={block.height && `${block.height}px`}
+            />) ||
+        (block.blockType == "VideoBlock"
+            && typeof(block.video) !== 'string'
+            && <Video
+                width={block.width}
+                height={block.height}
+                video={block.video}
+                autoplay={block.autoplay}
+                controls={block.controls}
+            />) ||
         {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
     ))}
     </div>
