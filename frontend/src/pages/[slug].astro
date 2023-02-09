@@ -11,11 +11,9 @@ const page = await getPageBySlug(slug);
 {
     (page && (
         <Layout title={page.title}>
-            <Main>
-                {page.blocks.map((block) => (
-                    <PageBlock block={block} />
-                ))}
-            </Main>
+            {page.blocks.map((block) => (
+                <PageBlock block={block} />
+            ))}
         </Layout>
     )) || <p>Page not found!</p>
 }
