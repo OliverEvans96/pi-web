@@ -1,6 +1,7 @@
 import { Block } from 'payload/types';
 import ImageBlock from './Image';
 import ParagraphBlock from './Paragraph';
+import RichTextBlock from './RichText';
 
 const TwoColumnBlock: Block = {
     slug: 'TwoColumn', // required
@@ -16,6 +17,7 @@ const TwoColumnBlock: Block = {
                     blocks: [
                         ParagraphBlock,
                         ImageBlock,
+                        RichTextBlock,
                     ]
                 },
                 {
@@ -24,6 +26,7 @@ const TwoColumnBlock: Block = {
                     blocks: [
                         ParagraphBlock,
                         ImageBlock,
+                        RichTextBlock,
                     ]
                 },
             ]

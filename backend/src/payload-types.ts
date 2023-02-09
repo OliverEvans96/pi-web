@@ -179,6 +179,14 @@ export interface Page {
               blockName?: string;
               blockType: 'ImageBlock';
             }
+          | {
+              content: {
+                [k: string]: unknown;
+              }[];
+              id?: string;
+              blockName?: string;
+              blockType: 'RichText';
+            }
         )[];
         right: (
           | {
@@ -194,6 +202,14 @@ export interface Page {
               id?: string;
               blockName?: string;
               blockType: 'ImageBlock';
+            }
+          | {
+              content: {
+                [k: string]: unknown;
+              }[];
+              id?: string;
+              blockName?: string;
+              blockType: 'RichText';
             }
         )[];
         id?: string;
