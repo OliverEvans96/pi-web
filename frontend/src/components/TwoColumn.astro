@@ -25,8 +25,8 @@ const blocks =
             && typeof(block.image) !== 'string'
             && <img
                 src={block.image.url}
-                width={block.width && `${block.width}px`}
-                height={block.height && `${block.height}px`}
+                width={block.width}
+                height={block.height}
             />) ||
         (block.blockType == "VideoBlock"
             && typeof(block.video) !== 'string'
@@ -50,8 +50,8 @@ const blocks =
             && typeof(block.image) !== 'string'
             && <img
                 src={block.image.url}
-                width={block.width && `${block.width}px`}
-                height={block.height && `${block.height}px`}
+                width={block.width}
+                height={block.height}
             />) ||
         (block.blockType == "VideoBlock"
             && typeof(block.video) !== 'string'
