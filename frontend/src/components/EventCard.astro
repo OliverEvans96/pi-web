@@ -7,11 +7,20 @@ interface Props {
 }
 
 let {title, date, price, description} = Astro.props;
+
+const parsed = new Date(Date.parse(date));
+
+const formatter = new Intl.DateTimeFormat('en-US', {
+  timeZone: 'America/New_York',
+  timeStyle: 'short',
+  dateStyle: 'short'
+});
+const formattedDate = formatter.format(parsed);
 ---
 
 <div class="border-1 shadow-gray-300 rounded shadow-xl my-2 p-4">
   <h2 class="text-xl font-black">{title}</h2>
-  <h3 class="font-bold">{date}</h3>
+  <h3 class="font-bold">{formattedDate}</h3>
   <p>{price}</p>
   <p>{description}</p>
 </div>
