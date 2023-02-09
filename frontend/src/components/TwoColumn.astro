@@ -13,15 +13,19 @@ const blocks =
 // TODO: Make this less redundant somehow
 ---
 
-<div class="columns-2">
-    {blocks?.left.map(block => (
-    (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
-    (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
-    {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
-))}
-    {blocks?.right.map(block => (
-    (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
-    (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
-    {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
-))}
-</div>
+<div class="grid grid-cols-2 gap-3">
+    <div class="flex flex-col gap-3">
+        {blocks?.left.map(block => (
+        (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
+        (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
+        {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
+    ))}
+    </div>
+    <div class="flex flex-col gap-3">
+        {blocks?.right.map(block => (
+        (block.blockType == "Paragraph" && <Paragraph text={block.text} />) ||
+        (block.blockType == "ImageBlock" && <img src={(block.image as Image).url} width={block.width} height={block.height} />) ||
+        {console.log(`Unknown two-column block ${JSON.stringify(block)}`)}
+    ))}
+    </div>
+<div>
