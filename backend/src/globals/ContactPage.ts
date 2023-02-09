@@ -10,7 +10,6 @@ const ContactInfo: GlobalConfig = {
             name: 'hours',
             type: 'array',
             label: 'Hours of Operation',
-            required: true,
             fields: [
                 {
                     type: 'row',
@@ -33,7 +32,6 @@ const ContactInfo: GlobalConfig = {
         {
             name: 'contactInfo',
             type: 'array',
-            required: true,
             fields: [{
                 type: 'row', fields: [
                     {

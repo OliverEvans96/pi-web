@@ -3,16 +3,16 @@ import type { Image } from "@/payload/payload-types";
 import HeroOverlay from "./HeroOverlay.astro";
 
 interface Props {
-    image: Image;
-    title: string;
-    logo: Image;
-    caption: string;
+    image?: Image | undefined;
+    title?: string | undefined;
+    logo?: Image | undefined;
+    caption?: string | undefined;
 }
 
 const { image, title, logo, caption } = Astro.props;
 ---
 
-<div class="flex-1 relative bg-cover bg-center min-h-[500px]" style=`background-image: url(${image.url})`>
+<div class="flex-1 relative bg-cover bg-center min-h-[500px]" style=`background-image: url(${image?.url})`>
     <!-- <img class="w-full h-full object-cover object-center border-yellow-400 border-2" src={image.url} /> -->
     <HeroOverlay title={title} logo={logo} caption={caption} />
 </div>
