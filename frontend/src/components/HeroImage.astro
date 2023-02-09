@@ -9,8 +9,8 @@ interface Props {
 const { image, caption } = Astro.props;
 ---
 
-<div class="relative">
-    <img style="width: 100%; height: 100%;" src={image.url} />
+<div class="relative w-full grow">
+    <img class="w-full h-full object-cover object-center" src={image.url} />
     <section
         class="absolute w-[400px] h-fit m-5 top-1/4 right-10 bg-white p-2 border-2 border-black"
     >
