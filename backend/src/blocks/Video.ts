@@ -13,6 +13,18 @@ const VideoBlock: Block = {
             required: true,
         },
         {
+            name: 'controls',
+            type: 'checkbox',
+            label: 'Show controls',
+            required: true,
+        },
+        {
+            name: 'autoplay',
+            type: 'checkbox',
+            label: 'Autoplay (muted)',
+            required: true,
+        },
+        {
             type: 'row', fields: [
                 {
                     name: 'width',

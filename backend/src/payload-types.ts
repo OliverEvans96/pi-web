@@ -226,6 +226,8 @@ export interface Page {
       }
     | {
         video: string | Video;
+        controls: boolean;
+        autoplay: boolean;
         width?: number;
         height?: number;
         id?: string;
