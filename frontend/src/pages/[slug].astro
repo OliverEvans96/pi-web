@@ -8,15 +8,14 @@ const { slug } = Astro.params;
 const page = await getPageBySlug(slug);
 // TODO: Redirect to 404 if not found.
 ---
-
-<Main>
 {
     (page && (
         <Layout title={page.title}>
-            {page.blocks.map((block) => (
-                <PageBlock block={block} />
-            ))}
+            <Main>
+                {page.blocks.map((block) => (
+                    <PageBlock block={block} />
+                ))}
+            </Main>
         </Layout>
     )) || <p>Page not found!</p>
 }
-</Main>
