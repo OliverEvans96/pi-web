@@ -19,6 +19,12 @@ const HomePage: GlobalConfig = {
       required: true,
     },
     {
+      name: 'heroLogo',
+      type: 'relationship',
+      relationTo: 'images',
+      required: true,
+    },
+    {
       name: 'heroCaption',
       type: 'textarea',
       required: true,

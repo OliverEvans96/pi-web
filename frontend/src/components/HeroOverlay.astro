@@ -1,0 +1,19 @@
+---
+import type { Image } from "@/payload/payload-types";
+
+interface Props {
+    title: string;
+    logo: Image;
+    caption: string;
+}
+
+const { title, logo, caption } = Astro.props;
+---
+
+<section
+    class="absolute grid left-0 right-0 mx-auto place-items-center gap-2 top-20 bg-white/75 p-4 border-black border-2 w-[400px]"
+>
+    <img src={logo.url} class="w-[250px]" />
+    <h1 class="text-5xl font-bold text-center">{title}</h1>
+    <p>{caption}</p>
+</section>

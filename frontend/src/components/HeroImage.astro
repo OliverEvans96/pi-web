@@ -1,19 +1,18 @@
 ---
 import type { Image } from "@/payload/payload-types";
+import HeroOverlay from "./HeroOverlay.astro";
 
 interface Props {
     image: Image;
+    title: string;
+    logo: Image;
     caption: string;
 }
 
-const { image, caption } = Astro.props;
+const { image, title, logo, caption } = Astro.props;
 ---
 
-<div class="relative w-full grow">
-    <img class="w-full h-full object-cover object-center" src={image.url} />
-    <section
-        class="absolute w-[400px] h-fit m-5 top-1/4 right-10 bg-white p-2 border-2 border-black"
-    >
-        {caption}
-    </section>
+<div class="flex-1 relative bg-cover bg-center min-h-[500px]" style=`background-image: url(${image.url})`>
+    <!-- <img class="w-full h-full object-cover object-center border-yellow-400 border-2" src={image.url} /> -->
+    <HeroOverlay title={title} logo={logo} caption={caption} />
 </div>

@@ -13,9 +13,10 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 
 const homepage = await getHomepage();
-const {title} = homepage;
+const { title } = homepage;
 
 const heroImage = homepage.heroImage as Image;
+const heroLogo = homepage.heroLogo as Image;
 const heroCaption = homepage.heroCaption;
 
 const content = homepage.content as (FormattedElement | FormattedText)[];
@@ -24,10 +25,7 @@ const content = homepage.content as (FormattedElement | FormattedText)[];
 <BaseLayout title={title}>
 	<div class="relative flex flex-col h-screen">
 		<Navbar />
-		<HeroImage image={heroImage} caption={heroCaption} />
-		<div class="absolute top-20 place-self-center bg-white/75 p-3 pb-2 border-black border-2">
-			<h1 class="text-5xl font-bold text-center">{title}</h1>
-		</div>
+		<HeroImage title={title} image={heroImage} logo={heroLogo} caption={heroCaption} />
 	</div>
 
 	<Main>
@@ -36,7 +34,6 @@ const content = homepage.content as (FormattedElement | FormattedText)[];
 
 	<Footer />
 </BaseLayout>
-
 
 <style>
 	.text-gradient {
