@@ -2,7 +2,6 @@
 import { getPageBySlug } from "../api";
 import PageBlock from "../components/PageBlock.astro";
 import Layout from "../layouts/Layout.astro";
-import Main from "../layouts/Main.astro";
 
 const { slug } = Astro.params;
 const page = await getPageBySlug(slug);
