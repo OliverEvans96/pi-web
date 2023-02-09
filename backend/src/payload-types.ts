@@ -12,10 +12,10 @@ export interface Config {}
  */
 export interface Homepage {
   id: string;
-  title: string;
-  heroImage: string | Image;
-  heroLogo: string | Image;
-  heroCaption: string;
+  title?: string;
+  heroImage?: string | Image;
+  heroLogo?: string | Image;
+  heroCaption?: string;
   content?: {
     [k: string]: unknown;
   }[];

@@ -10,24 +10,20 @@ const HomePage: GlobalConfig = {
     {
       name: 'title',
       type: 'text',
-      required: true,
     },
     {
       name: 'heroImage',
       type: 'relationship',
       relationTo: 'images',
-      required: true,
     },
     {
       name: 'heroLogo',
       type: 'relationship',
       relationTo: 'images',
-      required: true,
     },
     {
       name: 'heroCaption',
       type: 'textarea',
-      required: true,
     },
     {
       name: 'content',
