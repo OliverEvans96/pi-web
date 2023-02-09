@@ -9,6 +9,7 @@ import HomePage from './globals/HomePage';
 import Products from './collections/Products';
 import Pages from './collections/Pages';
 import ContactInfo from './globals/ContactPage';
+import Videos from './collections/Videos';
 
 dotenv.config();
 
@@ -28,6 +29,7 @@ export default buildConfig({
     Products,
     Pages,
     Images,
+    Videos,
   ],
   csrf: [
     'https://preview.pureintentionsinc.com',

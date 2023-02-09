@@ -1,0 +1,28 @@
+---
+import type { Video } from "@/payload/payload-types";
+
+interface Props {
+    width?: number | undefined;
+    height?: number | undefined;
+    video?: Video;
+    controls: boolean;
+    autoplay: boolean;
+    loop: boolean;
+}
+
+const { width, height, video, controls, autoplay, loop } = Astro.props;
+
+// Chrome only allows autoplay when muted
+const muted = autoplay;
+---
+
+<video
+    width={width && `${width}px`}
+    height={height && `${height}px`}
+    {controls}
+    {autoplay}
+    {muted}
+    {loop}
+>
+    <source src={video?.url} type={video?.mimeType} />
+</video>
