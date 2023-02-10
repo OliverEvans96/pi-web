@@ -1,18 +1,46 @@
 ---
-import type { Image } from "@/payload/payload-types";
+import type { Homepage, Image } from "@/payload/payload-types";
 import HeroOverlay from "./HeroOverlay.astro";
+import Video from "./Video.astro";
+
 
 interface Props {
-    image?: Image | undefined;
+    backgroundBlocks?: Homepage["heroBackground"];
     title?: string | undefined;
     logo?: Image | undefined;
     caption?: string | undefined;
 }
 
-const { image, title, logo, caption } = Astro.props;
+const { backgroundBlocks, title, logo, caption } = Astro.props;
 ---
 
-<div class="flex-1 relative bg-cover bg-center min-h-[500px]" style=`background-image: url(${image?.url})`>
-    <!-- <img class="w-full h-full object-cover object-center border-yellow-400 border-2" src={image.url} /> -->
+<div class="flex-1 relative min-h-[500px]">
+    {
+        backgroundBlocks?.map(block =>
+            (block.blockType == "ImageBlock"
+                && typeof(block.image) !== 'string'
+                && <img
+                    src={block.image.url}
+                    width={block.width && `${block.width}px`}
+                    height={block.height && `${block.height}px`}
+                    class="absolute w-full h-full top-0 bottom-0 object-cover object-center"
+                />) ||
+
+            (block.blockType == "VideoBlock"
+                && typeof(block.video) !== 'string'
+                && <Video
+                    width={block.width}
+                    height={block.height}
+                    video={block.video}
+                    autoplay={block.autoplay}
+                    controls={block.controls}
+                    loop={block.loop}
+                    className="absolute w-full h-full top-0 bottom-0 object-cover object-center"
+                />) ||
+
+
+            {console.log(`Unknown hero block ${JSON.stringify(block)}`)}
+        )
+    }
     <HeroOverlay title={title} logo={logo} caption={caption} />
 </div>
