@@ -15,9 +15,7 @@ import Footer from "../components/Footer.astro";
 const homepage = await getHomepage();
 const { title } = homepage;
 
-const heroImage = homepage.heroImage as Image;
-const heroLogo = homepage.heroLogo as Image;
-const heroCaption = homepage.heroCaption;
+const { heroBackground, heroLogo, heroCaption } = homepage;
 
 const content = homepage.content as (FormattedElement | FormattedText)[];
 ---
@@ -25,7 +23,7 @@ const content = homepage.content as (FormattedElement | FormattedText)[];
 <BaseLayout title={title}>
 	<div class="relative flex flex-col h-screen">
 		<Navbar />
-		<HeroImage title={title} image={heroImage} logo={heroLogo} caption={heroCaption} />
+		<HeroImage title={title} backgroundBlocks={heroBackground} logo={heroLogo} caption={heroCaption} />
 	</div>
 
 	<Main>

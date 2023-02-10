@@ -13,7 +13,27 @@ export interface Config {}
 export interface Homepage {
   id: string;
   title?: string;
-  heroImage?: string | Image;
+  heroBackground: (
+    | {
+        image: string | Image;
+        width?: number;
+        height?: number;
+        id?: string;
+        blockName?: string;
+        blockType: 'ImageBlock';
+      }
+    | {
+        video: string | Video;
+        controls: boolean;
+        autoplay: boolean;
+        loop: boolean;
+        width?: number;
+        height?: number;
+        id?: string;
+        blockName?: string;
+        blockType: 'VideoBlock';
+      }
+  )[];
   heroLogo?: string | Image;
   heroCaption?: string;
   content?: {
@@ -42,6 +62,21 @@ export interface Image {
       filename?: string;
     };
   };
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "videos".
+ */
+export interface Video {
+  id: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
   createdAt: string;
   updatedAt: string;
 }
@@ -258,31 +293,6 @@ export interface Page {
         blockType: 'VideoBlock';
       }
   )[];
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "videos".
- */
-export interface Video {
-  id: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes: {
-    thumbnail: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
   createdAt: string;
   updatedAt: string;
 }

@@ -1,5 +1,7 @@
 
 import { GlobalConfig } from 'payload/types';
+import ImageBlock from '../blocks/Image';
+import VideoBlock from '../blocks/Video';
 
 const HomePage: GlobalConfig = {
   slug: 'homepage',
@@ -12,9 +14,13 @@ const HomePage: GlobalConfig = {
       type: 'text',
     },
     {
-      name: 'heroImage',
-      type: 'relationship',
-      relationTo: 'images',
+      name: 'heroBackground',
+      type: 'blocks',
+      maxRows: 1,
+      blocks: [
+        ImageBlock,
+        VideoBlock,
+      ],
     },
     {
       name: 'heroLogo',
