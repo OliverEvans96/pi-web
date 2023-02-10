@@ -18,6 +18,16 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@500&family=Poppins:wght@200&family=Varela+Round&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 		<title>{title}</title>
+		<script
+		type="module"
+		src="node_modules/@material-tailwind/html@latest/scripts/popover.js"
+	></script>
+	 
+	<!-- from cdn -->
+	<script
+		type="module"
+		src="https://unpkg.com/@material-tailwind/html@latest/scripts/popover.js"
+	></script>
 	</head>
 	<body class="bg-gradient-to-t from-lime-600/50 to-blue-200/70 pb-12 min-h-screen relative">
 		<slot />
