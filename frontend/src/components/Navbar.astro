@@ -4,19 +4,8 @@ import { getAllPages } from "../api";
 let pages = await getAllPages();
 let adminUrl = `${process.env.PAYLOAD_URL}/admin`;
 ---
-
-<!-- <div id="navbar" class="group grid content-center bg-yellow-300/90 text-lg font-bold h-12 flex-none">
-    <button>All Navlinks</button>
-    <div class="font-sans text-center space-x-4 hidden group-hover:block">
-        <a href="/" class="hover:text-green-700">Home</a>
-        {pages.docs.map((page) => <a class="hover:text-green-700" href={`/${page.slug}`}>{page.title}</a>)}
-        <a href="/contact" class="hover:text-green-700">Contact</a>
-    </div>
-    <a href={adminUrl} class="absolute right-6 hover:text-green-700">Login</a>
-</div> -->
     
     <div class="group grid place-content-center bg-yellow-300/90 text-lg font-bold h-12">
-        
         <button
         data-ripple-light="true"
         data-popover-target="menu"
