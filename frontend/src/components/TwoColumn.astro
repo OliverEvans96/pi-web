@@ -1,6 +1,7 @@
 ---
 import type { Page } from "@/payload/payload-types";
 import type { FormattedElement, FormattedText } from "@/payload/rich-text-export";
+import ImageFrame from "./ImageFrame.astro";
 import Paragraph from "./Paragraph.astro";
 import RichText from "./RichText.astro";
 import Video from "./Video.astro";
@@ -23,7 +24,7 @@ const blocks =
         (block.blockType == "RichText" && <RichText richText={block.content as (FormattedElement | FormattedText)[]} />) ||
         (block.blockType == "ImageBlock"
             && typeof(block.image) !== 'string'
-            && <img
+            && <ImageFrame
                 src={block.image.url}
                 width={block.width}
                 height={block.height}
@@ -48,7 +49,7 @@ const blocks =
         (block.blockType == "RichText" && <RichText richText={block.content as (FormattedElement | FormattedText)[]} />) ||
         (block.blockType == "ImageBlock"
             && typeof(block.image) !== 'string'
-            && <img
+            && <ImageFrame
                 src={block.image.url}
                 width={block.width}
                 height={block.height}

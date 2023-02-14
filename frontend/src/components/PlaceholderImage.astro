@@ -1,13 +1,16 @@
 ---
+import ImageFrame from './ImageFrame.astro';
+
 interface Props {
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
+  src?: string;
 }
 
 const { width, height } = Astro.props;
 ---
 
-<img
+<ImageFrame
   src="/image-placeholder.png"
   class=`border-4 border-black my-4`
   style=`width: ${width}; height: ${height}`

@@ -1,6 +1,7 @@
 ---
 import escapeHTML from "escape-html";
 import { Text, Node, BaseEditor } from "slate";
+import ImageFrame from "./ImageFrame.astro";
 
 interface Props {
   richText: Exclude<Node, BaseEditor>[] | undefined;
@@ -47,7 +48,7 @@ const props = Astro.props;
           <p>{<Astro.self richText={node.children} />}</p>
         )}
         {node.type === "upload" && (
-          <img class="w-[300px]" src={(node as any).value.url} />
+          <ImageFrame class="w-[300px]" src={(node as any).value.url} />
         )}
         {node.type === "ul" && (
           <ul>{<Astro.self richText={node.children} />}</ul>

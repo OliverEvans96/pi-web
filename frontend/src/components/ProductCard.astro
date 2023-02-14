@@ -17,7 +17,7 @@ const imageSrc = image?.url;
   <p>${product.price}</p>
   <div class="grid grid-cols-2">
     {
-      (imageSrc && <img width="200" height="200" src={imageSrc} />) || (
+      (imageSrc && <img class="rounded-sm drop-shadow-sm" width="200" height="200" src={imageSrc} />) || (
         <PlaceholderImage width="200px" height="200px" />
       )
     }

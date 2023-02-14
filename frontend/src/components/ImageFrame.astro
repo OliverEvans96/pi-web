@@ -1,0 +1,24 @@
+---
+import BaseCard from "../layouts/BaseCard.astro";
+
+interface Props {
+    src?: string | undefined;
+    width?: string | number | undefined;
+    height?: string | number | undefined;
+    class?: string | undefined;
+    style?: string | undefined;
+}
+
+const { width, height, src, style } = Astro.props;
+const className = Astro.props.class;
+---
+
+<BaseCard class="p-0 rounded-md">
+    <img
+        src={src}
+        class={`rounded-md ${className}`}
+        style={style}
+        width={width}
+        height={height}
+    />
+</BaseCard>
