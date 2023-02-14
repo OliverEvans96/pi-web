@@ -1,7 +1,7 @@
 ---
 import type { Homepage, Image } from "@/payload/payload-types";
 import HeroOverlay from "./HeroOverlay.astro";
-import Video from "./Video.astro";
+import RawVideo from "./RawVideo.astro";
 
 
 interface Props {
@@ -28,7 +28,7 @@ const { backgroundBlocks, title, logo, caption } = Astro.props;
 
             (block.blockType == "VideoBlock"
                 && typeof(block.video) !== 'string'
-                && <Video
+                && <RawVideo
                     width={block.width}
                     height={block.height}
                     video={block.video}
@@ -37,7 +37,6 @@ const { backgroundBlocks, title, logo, caption } = Astro.props;
                     loop={block.loop}
                     className="absolute w-full h-full top-0 bottom-0 object-cover object-center"
                 />) ||
-
 
             {console.log(`Unknown hero block ${JSON.stringify(block)}`)}
         )
