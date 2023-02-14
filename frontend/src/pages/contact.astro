@@ -1,6 +1,7 @@
 ---
 import { getContactInfo } from "../api";
 import LocationMap from "../components/LocationMap.astro";
+import BaseCard from "../layouts/BaseCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 let { hours, contactInfo } = await getContactInfo();
@@ -10,7 +11,7 @@ let { hours, contactInfo } = await getContactInfo();
   <div class="flex flex-col items-center p-2 gap-4">
     <h1 class="text-3xl font-bold text-center">Contact Us:</h1>
     <div class="flex flex-row px-2 gap-4 justify-around w-full mt-2">
-      <section class="border-2 border-black text-center p-2 h-40 w-80">
+      <BaseCard>
         <p>Hours of Operation</p>
         {
           hours?.map(({ day, hours }) => (
@@ -19,8 +20,8 @@ let { hours, contactInfo } = await getContactInfo();
             </p>
           ))
         }
-      </section>
-      <section class="border-2 border-black text-center p-2 h-40 w-80">
+      </BaseCard>
+      <BaseCard>
         <p>Contact Info</p>
         {
           contactInfo?.map(({ type, value }) => (
@@ -29,8 +30,10 @@ let { hours, contactInfo } = await getContactInfo();
             </p>
           ))
         }
-      </section>
+      </BaseCard>
     </div>
-    <LocationMap width={600} height={400} />
+    <BaseCard class="p-0">
+      <LocationMap width={600} height={400} />
+    </BaseCard>
   </div>
 </Layout>

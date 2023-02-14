@@ -1,3 +1,10 @@
-<div class="border border-2 rounded bg-gray-50 drop-shadow-md my-2 p-4">
+---
+interface Props {
+    class?: string;
+}
+
+---
+
+<div class={`border border-2 rounded bg-gray-50 drop-shadow-md my-2 p-4 ${Astro.props.class}`}>
     <slot />
 </div>
