@@ -3,14 +3,14 @@ import escapeHTML from "escape-html";
 import { Text, Node, BaseEditor } from "slate";
 
 interface Props {
-  richText: Exclude<Node, BaseEditor>[];
+  richText: Exclude<Node, BaseEditor>[] | undefined;
 }
 
 const props = Astro.props;
 ---
 
 {
-  props.richText.map((node) =>
+  props.richText?.map((node) =>
     Text.isText(node) ? (
       <Fragment>
         {node["bold"] && <strong>{node.text}</strong>}

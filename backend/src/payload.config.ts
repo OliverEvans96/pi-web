@@ -10,6 +10,7 @@ import Products from './collections/Products';
 import Pages from './collections/Pages';
 import ContactInfo from './globals/ContactPage';
 import Videos from './collections/Videos';
+import Navbar from './globals/Navbar';
 
 dotenv.config();
 
@@ -40,6 +41,7 @@ export default buildConfig({
   globals: [
     HomePage,
     ContactInfo,
+    Navbar,
   ],
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')

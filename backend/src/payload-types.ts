@@ -99,58 +99,40 @@ export interface ContactInfo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "navbar".
  */
-export interface Category {
+export interface Navbar {
   id: string;
-  name?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title?: string;
-  description?: string;
-  slug?: string;
-  author?: string | User;
-  publishedDate?: string;
-  category?: string | Category;
-  content?: {
-    [k: string]: unknown;
-  }[];
-  status?: 'draft' | 'published';
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: string;
-  name?: string;
-  email?: string;
-  resetPasswordToken?: string;
-  resetPasswordExpiration?: string;
-  loginAttempts?: number;
-  lockUntil?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
- */
-export interface Product {
-  id: string;
-  name?: string;
-  image?: string | Image;
-  price?: number;
-  description?: string;
-  createdAt: string;
-  updatedAt: string;
+  items: (
+    | {
+        page?: string | Page;
+        id?: string;
+        blockName?: string;
+        blockType: 'PageRef';
+      }
+    | {
+        label: string;
+        pages: {
+          page?: string | Page;
+          id?: string;
+        }[];
+        id?: string;
+        blockName?: string;
+        blockType: 'PageGroup';
+      }
+    | {
+        label: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'HomepageRef';
+      }
+    | {
+        label: string;
+        id?: string;
+        blockName?: string;
+        blockType: 'ContactPageRef';
+      }
+  )[];
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -293,6 +275,61 @@ export interface Page {
         blockType: 'VideoBlock';
       }
   )[];
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  name?: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
+export interface Product {
+  id: string;
+  name?: string;
+  image?: string | Image;
+  price?: number;
+  description?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title?: string;
+  description?: string;
+  slug?: string;
+  author?: string | User;
+  publishedDate?: string;
+  category?: string | Category;
+  content?: {
+    [k: string]: unknown;
+  }[];
+  status?: 'draft' | 'published';
+  createdAt: string;
+  updatedAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: string;
+  name?: string;
+  email?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpiration?: string;
+  loginAttempts?: number;
+  lockUntil?: string;
   createdAt: string;
   updatedAt: string;
 }

@@ -1,6 +1,6 @@
 import type { PayloadCollection } from './types';
 import qs from "qs";
-import type { LandingTitle, Post, Product, Page, Homepage, ContactInfo } from '@/payload/payload-types';
+import type { Post, Product, Page, Homepage, Navbar, ContactInfo } from '@/payload/payload-types';
 
 function apiFetch(url: string, options: any = {}) {
   const defaultOptions = {
@@ -72,6 +72,15 @@ export async function getHomepage(): Promise<Homepage> {
   )
   return data
 }
+
+
+export async function getNavbar(): Promise<Navbar> {
+  const data = await apiFetch(
+    `${process.env.PAYLOAD_URL}/api/globals/navbar`
+  )
+  return data
+}
+
 
 export async function getContactInfo(): Promise<ContactInfo> {
   const data = await apiFetch(
