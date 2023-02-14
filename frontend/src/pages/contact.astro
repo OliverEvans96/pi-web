@@ -12,7 +12,7 @@ let { hours, contactInfo } = await getContactInfo();
     <h1 class="text-3xl font-bold text-center">Contact Us:</h1>
     <div class="flex flex-row px-2 gap-4 justify-around w-full mt-2">
       <BaseCard class="w-[45%]">
-        <p>Hours of Operation</p>
+        <p class="font-bold text-center">Hours of Operation</p>
         {
           hours?.map(({ day, hours }) => (
             <p>
@@ -22,7 +22,7 @@ let { hours, contactInfo } = await getContactInfo();
         }
       </BaseCard>
       <BaseCard class="w-[45%]">
-        <p>Contact Info</p>
+        <p class="font-bold text-center">Contact Info</p>
         {
           contactInfo?.map(({ type, value }) => (
             <p>
