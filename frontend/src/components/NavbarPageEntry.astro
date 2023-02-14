@@ -1,0 +1,15 @@
+---
+interface Props {
+    title: string,
+    slug: string,
+}
+
+const { title, slug } = Astro.props;
+---
+
+<a
+    class="shrink-0 hover:text-green-700 select-none"
+    href={`/${slug}`}
+>
+    {title}
+</a>

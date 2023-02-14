@@ -17,13 +17,24 @@ const { title } = homepage;
 
 const { heroBackground, heroLogo, heroCaption } = homepage;
 
-const content = homepage.content as (FormattedElement | FormattedText)[];
+const content = homepage.content as
+	| (FormattedElement | FormattedText)[]
+	| undefined;
 ---
 
 <BaseLayout title={title}>
 	<div class="relative flex flex-col h-screen">
 		<Navbar />
-		<HeroImage title={title} backgroundBlocks={heroBackground} logo={heroLogo} caption={heroCaption} />
+		{
+			typeof heroLogo !== "string" && (
+				<HeroImage
+					title={title}
+					backgroundBlocks={heroBackground}
+					logo={heroLogo}
+					caption={heroCaption}
+				/>
+			)
+		}
 	</div>
 
 	<Main>

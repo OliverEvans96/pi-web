@@ -1,0 +1,35 @@
+---
+import type { Page } from "@/payload/payload-types";
+
+interface Props {
+    label: string;
+    pages: Page[];
+}
+
+const { label, pages } = Astro.props;
+---
+
+<div class="group">
+    <button
+        class="shrink-0 cursor-default whitespace-normal select-none middle none center font-sans text-m font-bold text-black hover:text-green-700"
+    >
+        {label}
+    </button>
+    <ul
+        role="menu"
+        class="hidden group-hover:block absolute top-10 z-10 min-w-[180px] overflow-auto bg-yellow-300/90 p-3 font-sans text-sm font-bold text-black shadow-lg shadow-gray-500/10 focus:outline-none"
+    >
+        {
+            pages.map((page) => (
+                <li>
+                    <a
+                        class="block w-full cursor-pointer select-none rounded-md px-3 pt-[9px] pb-2 text-start leading-tight transition-all hover:text-green-700 hover:bg-gray-50 hover:bg-opacity-80"
+                        href={`/${page.slug}`}
+                    >
+                        {page.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
