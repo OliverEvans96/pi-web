@@ -1,8 +1,6 @@
 import { buildConfig } from 'payload/config';
 import dotenv from 'dotenv';
 import path from 'path';
-import Categories from './collections/Categories';
-import Posts from './collections/Posts';
 import Users from './collections/Users';
 import Images from './collections/Images';
 import HomePage from './globals/HomePage';
@@ -24,8 +22,6 @@ export default buildConfig({
     user: Users.slug,
   },
   collections: [
-    Categories,
-    Posts,
     Users,
     Products,
     Pages,
