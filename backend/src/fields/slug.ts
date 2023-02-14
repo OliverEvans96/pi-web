@@ -30,7 +30,7 @@ export function isObject(item: unknown): boolean {
  * @param target
  * @param ...sources
  */
-function deepMerge<T, R>(target: T, source: R): T {
+function deepMerge<T extends object, R>(target: T, source: R): T {
   const output = { ...target };
   if (isObject(target) && isObject(source)) {
     Object.keys(source).forEach((key) => {

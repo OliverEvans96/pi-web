@@ -7,11 +7,12 @@ import TwoColumnBlock from '../blocks/TwoColumn';
 import RichTextBlock from '../blocks/RichText';
 import ImageBlock from '../blocks/Image';
 import VideoBlock from '../blocks/Video';
+import slug from '../fields/slug';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
-    defaultColumns: ['title', 'slug', 'category', 'status'],
+    defaultColumns: ['title', 'slug', 'status'],
     useAsTitle: 'title',
   },
   access: {
@@ -23,18 +24,7 @@ const Pages: CollectionConfig = {
       type: 'text',
       required: true,
     },
-    {
-      name: 'slug',
-      type: 'text',
-      // TODO: validate
-      required: true,
-      unique: true,
-    },
-    {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories'
-    },
+    slug(),
     {
       name: 'status',
       type: 'select',

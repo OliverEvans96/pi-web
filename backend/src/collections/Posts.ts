@@ -4,7 +4,7 @@ import slug from '../fields/slug';
 const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
-    defaultColumns: ['title', 'author', 'category', 'tags', 'status'],
+    defaultColumns: ['title', 'author', 'tags', 'status'],
     useAsTitle: 'title',
   },
   access: {
@@ -28,11 +28,6 @@ const Posts: CollectionConfig = {
     {
       name: 'publishedDate',
       type: 'date',
-    },
-    {
-      name: 'category',
-      type: 'relationship',
-      relationTo: 'categories'
     },
     {
       name: 'content',
