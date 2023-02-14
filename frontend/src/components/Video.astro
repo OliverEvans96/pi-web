@@ -1,5 +1,6 @@
 ---
 import type { Video } from "@/payload/payload-types";
+import BaseCard from "../layouts/BaseCard.astro";
 
 interface Props {
     width?: number | undefined;
@@ -11,21 +12,24 @@ interface Props {
     className?: string;
 }
 
-const { width, height, video, controls, autoplay, loop, className } = Astro.props;
+const { width, height, video, controls, autoplay, loop, className } =
+    Astro.props;
 
 // Chrome only allows autoplay when muted
 const muted = autoplay;
 ---
 
-<video
-    width={width}
-    height={height}
-    {controls}
-    {autoplay}
-    {muted}
-    {loop}
-    disablepictureinpicture
-    class={className}
->
-    <source src={video?.url} type={video?.mimeType} />
-</video>
+<BaseCard class="mx-auto p-0 rounded-md w-fit">
+    <video
+        width={width}
+        height={height}
+        {controls}
+        {autoplay}
+        {muted}
+        {loop}
+        disablepictureinpicture
+        class={`rounded-md ${className}`}
+    >
+        <source src={video?.url} type={video?.mimeType} />
+    </video>
+</BaseCard>
