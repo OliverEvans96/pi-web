@@ -17,8 +17,8 @@ const extractPages = (group: PageGroup): Page[] =>
   group.pages.map((page) => page.page).filter(isPage);
 ---
 
-<div class="grid place-content-center bg-yellow-300/90 text-lg font-bold h-12">
-  <div class="flex flex-row font-sans text-center space-x-6">
+<div class="grid place-content-center bg-yellow-300/90 text-lg font-bold md:h-12">
+  <div class="flex flex-col md:flex-row font-sans text-center space-x-6">
     {
       navbar.items.map(
         (item) =>
