@@ -1,5 +1,6 @@
 ---
 import type { Image, Product } from "@/payload/payload-types";
+import BaseCard from "../layouts/BaseCard.astro";
 import PlaceholderImage from "./PlaceholderImage.astro";
 
 interface Props {
@@ -11,7 +12,7 @@ const image = product.image as Image | undefined;
 const imageSrc = image?.url;
 ---
 
-<div class="border-2 border-black p-2 mb-2">
+<BaseCard>
   <h4 class="text-lg font-bold">{product.name}</h4>
   <p>${product.price}</p>
   <div class="grid grid-cols-2">
@@ -22,4 +23,4 @@ const imageSrc = image?.url;
     }
     <p>{product.description}</p>
   </div>
-</div>
+</BaseCard>

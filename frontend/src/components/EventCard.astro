@@ -1,26 +1,28 @@
 ---
+import BaseCard from "../layouts/BaseCard.astro";
+
 interface Props {
-    title: string,
-    date: string,
-    price: number,
-    description: string,
+  title: string;
+  date: string;
+  price: number;
+  description: string;
 }
 
-let {title, date, price, description} = Astro.props;
+let { title, date, price, description } = Astro.props;
 
 const parsed = new Date(Date.parse(date));
 
-const formatter = new Intl.DateTimeFormat('en-US', {
-  timeZone: 'America/New_York',
-  timeStyle: 'short',
-  dateStyle: 'short'
+const formatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/New_York",
+  timeStyle: "short",
+  dateStyle: "short",
 });
 const formattedDate = formatter.format(parsed);
 ---
 
-<div class="border-1 shadow-gray-300 rounded shadow-xl my-2 p-4">
+<BaseCard>
   <h2 class="text-xl font-black">{title}</h2>
   <h3 class="font-bold">{formattedDate}</h3>
   <p>{price}</p>
   <p>{description}</p>
-</div>
+</BaseCard>
