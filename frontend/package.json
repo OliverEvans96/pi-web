@@ -19,7 +19,6 @@
     "@material-tailwind/html": "^2.0.0",
     "@types/slate": "^0.47.11",
     "astro": "^2.0.1",
-    "font-awesome": "^4.7.0",
     "lorem-ipsum": "^2.0.8",
     "pi-cms-backend": "file:../backend",
     "qs": "^6.11.0",
