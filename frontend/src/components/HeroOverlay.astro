@@ -1,9 +1,10 @@
 ---
-import type { Image } from "@/payload/payload-types";
+import type { Homepage } from "@/payload/payload-types";
+import Iframe from "./Iframe.astro";
 
 interface Props {
     title?: string | undefined;
-    logo?: Image | undefined;
+    logo?: Homepage["heroLogo"] | undefined;
     caption?: string | undefined;
 }
 
@@ -11,9 +12,27 @@ const { title, logo, caption } = Astro.props;
 ---
 
 <section
-    class="absolute rounded-md grid left-0 right-0 mx-auto place-items-center gap-4 top-20 bg-white/75 p-4 max-w-[600px]"
+    class="absolute rounded-md grid left-0 right-0 mx-auto place-items-center gap-4 top-20 bg-white/75 p-4 max-w-[700px]"
 >
-    <img src={logo?.url} class="w-[250px] mb-2 rounded-md" />
+    {
+        logo?.map(block =>
+            (block.blockType == "ImageBlock"
+                && typeof(block.image) !== 'string'
+                && <img
+                src={block?.image.url}
+                class="w-[250px] mb-2 rounded-md"
+                />) ||
+
+            (block.blockType == "EmbedVideoBlock"
+                && <Iframe
+                src={block.src}
+                width={block.width}
+                height={block.height}
+                />) ||
+
+            {console.log(`Unknown hero overlay block ${JSON.stringify(block)}`)}
+        )
+    }
     <h1 class="text-5xl font-bold text-center">{title}</h1>
     <p>{caption}</p>
 </section>

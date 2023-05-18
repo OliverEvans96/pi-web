@@ -1,0 +1,20 @@
+---
+export interface Props {
+    title?: string | undefined;
+    width?: number | undefined;
+    height?: number | undefined;
+    src?: string | undefined;
+};
+
+const { title, width, height, src } = Astro.props;
+---
+
+<iframe 
+    {title}
+    {src}
+    {width}
+    {height}
+    frameborder="0"
+    allowfullscreen
+    >
+</iframe>

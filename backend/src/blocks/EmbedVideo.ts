@@ -1,32 +1,13 @@
 import { Block } from 'payload/types';
 
 const VideoBlock: Block = {
-    slug: 'VideoBlock', // required
+    slug: 'EmbedVideoBlock', // required
     imageURL: 'https://cdn-icons-png.flaticon.com/64/1179/1179120.png',
-    imageAltText: 'video icon',
+    imageAltText: 'embed video icon',
     fields: [ // required
         {
-            name: 'video',
-            type: 'relationship',
-            relationTo: 'videos',
-            required: true,
-        },
-        {
-            name: 'controls',
-            type: 'checkbox',
-            label: 'Show controls',
-            required: true,
-        },
-        {
-            name: 'autoplay',
-            type: 'checkbox',
-            label: 'Autoplay (muted)',
-            required: true,
-        },
-        {
-            name: 'loop',
-            type: 'checkbox',
-            label: 'Loop',
+            name: 'src',
+            type: 'text',
             required: true,
         },
         {

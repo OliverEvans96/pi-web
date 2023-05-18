@@ -34,7 +34,24 @@ export interface Homepage {
         blockType: 'VideoBlock';
       }
   )[];
-  heroLogo?: string | Image;
+  heroLogo: (
+    | {
+        image: string | Image;
+        width?: number;
+        height?: number;
+        id?: string;
+        blockName?: string;
+        blockType: 'ImageBlock';
+      }
+    | {
+        src: string;
+        width?: number;
+        height?: number;
+        id?: string;
+        blockName?: string;
+        blockType: 'EmbedVideoBlock';
+      }
+  )[];
   heroCaption?: string;
   content?: {
     [k: string]: unknown;
@@ -141,8 +158,7 @@ export interface Navbar {
 export interface Page {
   id: string;
   title: string;
-  slug: string;
-  category?: string | Category;
+  slug?: string;
   status?: 'draft' | 'published';
   blocks: (
     | {
@@ -280,14 +296,6 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  name?: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "products".
  */
 export interface Product {
@@ -296,25 +304,6 @@ export interface Product {
   image?: string | Image;
   price?: number;
   description?: string;
-  createdAt: string;
-  updatedAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  title?: string;
-  description?: string;
-  slug?: string;
-  author?: string | User;
-  publishedDate?: string;
-  category?: string | Category;
-  content?: {
-    [k: string]: unknown;
-  }[];
-  status?: 'draft' | 'published';
   createdAt: string;
   updatedAt: string;
 }
